@@ -9,8 +9,9 @@
 
     require_once("Model/userAccountManager.php");
 
-    $registerResult = register("eliott.jaquier@cpnv.ch","Hey!ThisIs@T3ST");
-    $loginResult = login("eliott.jaquier@cpnv.ch","Hey!ThisIs@T3ST");
+    if(isset($_GET['email']) && isset($_GET['pwd'])){
+        $registerResult = register($_GET['email'],$_GET['pwd']);
+    }
+    //$loginResult = login("eliott.jaquier@cpnv.ch","Hey!ThisIs@T3ST");
     $dumb = 0;
-
 ?>
