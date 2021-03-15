@@ -25,12 +25,12 @@
     function login($email,$pwd){
         $result = null;
         if(isset($email) && isset($pwd)){
-            require_once("../Model/userInfoProcess.php");
+            require_once("Model/userInfoProcess.php");
             if(str_contains($email, "@") && str_contains($email, ".")){
                 if(isUserExists($email)){
                     $userID = getUserIDPlace($email);
                     $userInfos = getUserInfo($userID);
-                    require_once("../Model/passwordManagement.php");
+                    require_once("Model/passwordManagement.php");
                     if(verifyPassword($pwd,$userInfos['password'])){
 
                         $result = $userInfos;
@@ -59,10 +59,10 @@
     function register($email,$pwd){
         $result = null;
         if(isset($email) && isset($pwd)) {
-            require_once("../Model/userInfoProcess.php");
+            require_once("Model/userInfoProcess.php");
             if(str_contains($email, "@") && str_contains($email, ".")) {
                 if (!isUserExists($email)) {
-                    require_once("../Model/passwordManagement.php");
+                    require_once("Model/passwordManagement.php");
                     if (isPasswordGood($pwd)) {
                         $hashedPassword = hashPassword($pwd);
                         $userProfile = array(

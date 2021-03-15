@@ -8,11 +8,11 @@
      */
 
     #region REQUIRE
-        require_once('../Model/jsonManager.php');
+        require_once('Model/jsonManager.php');
     #endregion
 
     #region CONSTANTS
-        const pathName = '../Data/';
+        const pathName = 'Data/';
         const fileName = 'users.json';
     #endregion
 

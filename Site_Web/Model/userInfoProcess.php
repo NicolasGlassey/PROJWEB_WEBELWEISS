@@ -8,7 +8,7 @@
      */
 
     #region REQUIRE
-        require_once('../Model/usersListManager.php');
+        require_once('Model/usersListManager.php');
     #endregion
 
     #region Check (Is)

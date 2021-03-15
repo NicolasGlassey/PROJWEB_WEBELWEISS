@@ -16,7 +16,6 @@ function controlLogin($userInfos){
     if (!(isset($userInfos['email'])) || !(isset($userInfos['password']))){
         displayLogin();
     }
-    /*
     try{
         require_once("Model/userAccountManager.php");
         $userResultLoginInfos = login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
@@ -28,5 +27,4 @@ function controlLogin($userInfos){
             displayLoginWithErrors('Votre Email ou votre mot de passe ont été entré de façon incorrecte');
         }
     }
-    */
 }
