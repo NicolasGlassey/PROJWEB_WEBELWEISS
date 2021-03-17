@@ -17,7 +17,6 @@
     <title>WebelWeiss - home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -76,7 +75,7 @@
                                                 <li><a href="index.php?action=listing_details">Listing details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="index.php?action=contact">Contact</a></li>
                                         <li class="login"><a href="index.php?action=login">
                                                 <i class="ti-user"></i> login/Register</a>
                                         </li>
