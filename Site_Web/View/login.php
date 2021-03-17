@@ -36,7 +36,7 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('assets/img/LoginBackground.jpg');">
+    <div class="container-login100" style="background-image: url('assets/img/LoginBackground.gif');">
         <div class="wrap-login100">
             <?php
                 // show error message if it has one
