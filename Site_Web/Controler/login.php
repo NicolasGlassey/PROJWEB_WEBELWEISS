@@ -15,16 +15,17 @@ function controlLogin($userInfos){
     require_once("Controler/navigation.php");
     if (!(isset($userInfos['email'])) || !(isset($userInfos['password']))){
         displayLogin();
-    }
-    try{
-        require_once("Model/userAccountManager.php");
-        $userResultLoginInfos = login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
-        displayHome();
-    }catch (AccountExeption $ex){
-        if($ex->getCode() == 3){
-            displayLogin();
-        }else{
-            displayLoginWithErrors('Votre Email ou votre mot de passe ont été entré de façon incorrecte');
+    }else{
+        try{
+            require_once("Model/userAccountManager.php");
+            $userResultLoginInfos = login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
+            displayHome();
+        }catch (AccountExeption $ex){
+            if($ex->getCode() == 3){
+                displayLogin();
+            }else{
+                displayLoginWithErrors('Votre Email ou votre mot de passe ont été entré de façon incorrecte');
+            }
         }
     }
 }
