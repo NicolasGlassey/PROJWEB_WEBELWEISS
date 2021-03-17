@@ -8,4 +8,4 @@
  */
 
 require_once "Controler/navigation.php";
-displayLoginWithErrors("Les données entrée sont incorrect");
+displayLoginWithErrors("Les données entrées sont incorrect");

@@ -24,7 +24,7 @@ function controlLogin($userInfos){
             if($ex->getCode() == 3){
                 displayLogin();
             }else{
-                displayLoginWithErrors('Votre Email ou votre mot de passe ont été entré de façon incorrecte');
+                displayLoginWithErrors('Vos données de connexion sont erronées. Veuillez réessayer.');
             }
         }
     }
