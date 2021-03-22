@@ -29,3 +29,18 @@ function controlLogin($userInfos){
         }
     }
 }
+
+/**
+ * @brief display the good page if the register failed or success
+ */
+function controlRegister(){
+    require_once("Controler/navigation.php");
+    try{
+        require_once("Model/userAccountManager.php");
+        //$userResultLoginInfos = register(email,passwprd);
+    }catch (AccountExeption $ex){
+        /*if($ex->getCode() == 3){
+
+        }*/
+    }
+}
