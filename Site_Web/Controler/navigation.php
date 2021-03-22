@@ -14,13 +14,6 @@ function displayHome(){
 }
 
 /**
- * @brief display the register page
- */
-function displayRegister(){
-    require 'View/register.php';
-}
-
-/**
  * @brief display the login page
  */
 function displayLogin(){

@@ -5,34 +5,11 @@
  *   @author    Created by Jonatan PERRET
  *   @version   1.0 (08.03.2021)
  **/
+$title = "connection";
+ob_start();
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <title>WebelWeiss - connection</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="assets/img/icons/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-    <!--===============================================================================================-->
 
-</head>
 <body>
 
 <div class="limiter">
@@ -68,26 +45,12 @@
                     </button>
                 </div>
             </form>
-
-            <div class="container-register100-form-btn">
-                <a class="register100-form-btn" href="index.php?action=register">s'inscrire</a>
-            </div>
         </div>
     </div>
 </div>
-
-
-
-
-<!--===============================================================================================-->
-<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="assets/vendor/bootstrap/js/popper.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="assets/js/main.js"></script>
-
 </body>
-</html>
+
+<?php
+$content = ob_get_clean();
+require "View/gabarit.php";
+?>
