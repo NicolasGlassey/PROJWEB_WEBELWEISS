@@ -19,6 +19,9 @@ if(isset($_GET['action'])){
             $userInfos = $_POST;
             controlLogin($userInfos);
             break;
+        case 'profile' :
+            displayprofile($id);
+            break;
         default:
             displayHome();
             break;

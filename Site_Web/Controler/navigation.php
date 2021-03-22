@@ -28,3 +28,7 @@ function displayLoginWithErrors($errors){
     $_errorMsg = $errors;
     displayLogin();
 }
+
+/**
+ * @brief display the profil of the user
+ */

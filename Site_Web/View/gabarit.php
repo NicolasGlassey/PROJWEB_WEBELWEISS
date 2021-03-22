@@ -66,7 +66,11 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php?action=home">Home</a></li>
-                                    <li><a href="index.php?action=about">About</a></li>
+                                    <?php if ((isset($_SESSION['userEmail']))) {?>
+                                        <li><a href="index.php?action=profilUser"><?=$_SESSION['userEmail'] ?></a></li>
+                                    <?php } else {?>
+                                        <li><a href="index.php?action=profilUser"></a></li>
+                                    <?php }?>
                                     <li><a href="index.php?action=categories">Categories</a></li>
                                     <li><a href="#">Page</a>
                                         <ul class="submenu">
@@ -77,9 +81,16 @@
                                         </ul>
                                     </li>
                                     <li><a href="index.php?action=contact">Contact</a></li>
+                                    <?php if (!(isset($_SESSION['userEmail']))) {?>
                                     <li class="login"><a href="index.php?action=login">
-                                            <i class="ti-user"></i> login/Register</a>
+                                            <i class="ti-user"></i> se connecter</a>
                                     </li>
+                                    <?php } else {?>
+                                    <li class="login"><a href="index.php?action=login">
+                                            <i class="ti-user"></i> se déconnecter</a>
+                                    </li>
+
+                                    <?php } ?>
                                 </ul>
                             </nav>
                         </div>
