@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>WebelWeiss - login</title>
+    <title>WebelWeiss - connection</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -47,7 +47,7 @@
             <form class="login100-form" method="post" action="index.php?action=login" id="LoginForm">
 
                 <div class="wrap-input100 m-b-10" >
-                    <input class="input100" type="Email" name="email" id="EmailInput" placeholder="Username" required>
+                    <input class="input100" type="Email" name="email" id="EmailInput" placeholder="Email" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-user"></i>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="wrap-input100 m-b-10">
-                    <input class="input100" type="password" name="password" placeholder="Password" required>
+                    <input class="input100" type="password" name="password" placeholder="Mot de passe" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
 							<i class="fa fa-lock"></i>
@@ -64,10 +64,14 @@
 
                 <div class="container-login100-form-btn p-t-10">
                     <button class="login100-form-btn" id="LoginButton" type="submit">
-                        Login
+                        se connecter
                     </button>
                 </div>
             </form>
+
+            <div class="container-register100-form-btn">
+                <a class="register100-form-btn" href="index.php?action=register">s'inscrire</a>
+            </div>
         </div>
     </div>
 </div>
