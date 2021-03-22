@@ -29,3 +29,16 @@ function controlLogin($userInfos){
         }
     }
 }
+
+function controlRegister(){
+    require_once("Controler/navigation.php");
+    try{
+        require_once("Model/userAccountManager.php");
+        $userResultLoginInfos = register(email,passwprd);
+        displayHome();
+    }catch (AccountExeption $ex){
+        /*if($ex->getCode() == 3){
+
+        }*/
+    }
+}
