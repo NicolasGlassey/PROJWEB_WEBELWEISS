@@ -67,9 +67,9 @@
                                 <ul id="navigation">
                                     <li><a href="index.php?action=home">Home</a></li>
                                     <?php if ((isset($_SESSION['userEmail']))) {?>
-                                        <li><a href="index.php?action=profilUser"><?=$_SESSION['userEmail'] ?></a></li>
+                                        <li><a href="index.php?action=profile"><?=$_SESSION['userEmail'] ?></a></li>
                                     <?php } else {?>
-                                        <li><a href="index.php?action=profilUser"></a></li>
+                                        <li><a href="index.php?action=profile"></a></li>
                                     <?php }?>
                                     <li><a href="index.php?action=categories">Categories</a></li>
                                     <li><a href="#">Page</a>
