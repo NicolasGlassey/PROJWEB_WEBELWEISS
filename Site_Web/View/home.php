@@ -408,7 +408,7 @@ ob_start();
             </div>
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-team mb-30">
+                    <div class="single-team mb-200">
                         <div class="team-img">
                             <img src="assets/img/gallery/home_blog1.png" alt="">
                         </div>
@@ -421,7 +421,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-team mb-30">
+                    <div class="single-team mb-200">
                         <div class="team-img">
                             <img src="assets/img/gallery/home_blog2.png" alt="">
                         </div>
@@ -434,7 +434,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-team mb-30">
+                    <div class="single-team mb-200">
                         <div class="team-img">
                             <img src="assets/img/gallery/home_blog3.png" alt="">
                         </div>

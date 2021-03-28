@@ -11,7 +11,20 @@ ob_start();
 
 $userProfile = array(
     "name" => "Eliott",
-    "url" => "https://c8.alamy.com/comp/2BHG705/colourful-conceptual-images-2BHG705.jpg"
+        "posts" => array(
+            "post1" => array(
+                "url" => "https://c8.alamy.com/comp/2BHG705/colourful-conceptual-images-2BHG705.jpg",
+                "location" => "Concise",
+                "date" => "28/03/2021"),
+            "post2" => array(
+                "url" => "https://c8.alamy.com/comp/2BHG705/colourful-conceptual-images-2BHG705.jpg",
+                "location" => "Yverdon",
+                "date" => "27/03/2021"),
+            "post3" => array(
+                "url" => "https://c8.alamy.com/comp/2BHG705/colourful-conceptual-images-2BHG705.jpg",
+                "location" => "Yverdon",
+                "date" => "27/03/2021")
+        )
 );
 
 
@@ -21,25 +34,40 @@ $userProfile = array(
     <div><?=$profilError?></div>
 <?php }?>
 <?php if (isset($userProfile)){?>
-<div class="home-blog-area section-padding30">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="<?=$userProfile['url']?>" alt="">
+<body class="backgroundProfile">
+        <!-- Blog Ara Start -->
+        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-6 UserProfileInfos">
+            <div><strong><?=$userProfile['name']?></strong></div>
+
+        </div>
+
+
+
+        <div class="home-blog-area section-padding30" style="margin: 30px">
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($userProfile['posts'] as $postInfos) {?>
+                    <div class="col-xl-4 col-lg-5 col-md-10 col-sm-10 post">
+                        <div class="mb-10 single-team">
+                            <div class="team-caption">
+                                <div class="UserName"><?=$userProfile['name']?></div>
+                            </div>
+                            <div class="team-img coin">
+                                <img src="<?=$postInfos['url']?>">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 1px; margin-bottom: 10px">
+                            <div class="PostLocation"><?=$postInfos['location']?>&nbsple&nbsp</div>
+                            <div class="PostDate"><?=$postInfos['date']?></div>
+                        </div>
                     </div>
-                    <div class="team-caption">
-                        <span>HEALTH & CARE</span>
-                        <h3><a href="blog.html">The Best SPA Salons For
-                                Your Relaxation</a></h3>
-                        <p>October 6, 2020by Steve</p>
-                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <!-- Blog Ara End -->
+
+</body>
 <?php }?>
 
 

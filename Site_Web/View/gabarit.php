@@ -69,7 +69,7 @@
                                     <?php if ((isset($_SESSION['userEmail']))) {?>
                                         <li><a href="index.php?action=profile"><?=$_SESSION['userEmail'] ?></a></li>
                                     <?php } else {?>
-                                        <li><a href="index.php?action=profile"></a></li>
+                                        <li><a href="index.php?action=profile">Profile</a></li>
                                     <?php }?>
                                     <li><a href="index.php?action=categories">Categories</a></li>
                                     <li><a href="#">Page</a>

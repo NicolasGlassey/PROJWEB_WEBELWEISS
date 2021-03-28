@@ -8,6 +8,8 @@
 **/
 require_once 'Controler/navigation.php';
 
+$_GET['userId'] = 2;
+
 if(isset($_GET['action'])){
     $action = $_GET['action'];
     switch ($action){
