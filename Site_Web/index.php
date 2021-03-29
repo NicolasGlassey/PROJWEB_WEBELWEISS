@@ -22,8 +22,9 @@ if(isset($_GET['action'])){
             controlLogin($userInfos);
             break;
         case 'profile' :
-            require "View/profilUser.php";
-            //displayprofile($_GET);
+            require "View/profileUser.php";
+            /*require "View/profile.php";
+            displayProfile($_GET);*/
             break;
         default:
             displayHome();

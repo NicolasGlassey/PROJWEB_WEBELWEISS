@@ -1,7 +1,7 @@
 <?php
 /**
  * Project : ProgWEB - Images upload site
- * @file      profilUser.php
+ * @file      profileUser.php
  * @brief     This view is designed to display the profil of a user
  * @author    Created by Jonatan.PERRET
  * @version   1.0 (22.03.2021)
