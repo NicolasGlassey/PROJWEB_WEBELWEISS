@@ -2,8 +2,8 @@
 /**
      @file      navigation.php
      @brief     redirecting user
-     @author    Created by Jonatan PERRET, Eliott JAQUIER
-     @version   0.1 (08.03.2021)
+     @author    Created by Jonatan PERRET, Eliott JAQUIER, MIkael Juillet
+     @version   0.2 (27.03.2021)
 **/
 
 /**
@@ -11,13 +11,6 @@
  */
 function displayHome(){
     require 'View/home.php';
-}
-
-/**
- * @brief display the register page
- */
-function displayRegister(){
-    require 'View/register.php';
 }
 
 /**
@@ -34,4 +27,25 @@ function displayLoginWithErrors($errors){
     GLOBAL $_errorMsg;
     $_errorMsg = $errors;
     displayLogin();
+}
+
+/**
+ * @brief display the profile page with error message
+ */
+function displayProfileUserWithErrors($error)
+{
+    Global $profileError;
+    $profileError = $error;
+    require "View/profileUser.php";
+}
+
+/**
+ * @brief display the login page
+ */
+function displayProfileUser($userImages, $userInfos){
+    Global $userProfileImages;
+    Global $userProfileInfos;
+    $userProfileImages = $userImages;
+    $userProfileInfos = $userInfos;
+    require "View/profileUser.php";
 }

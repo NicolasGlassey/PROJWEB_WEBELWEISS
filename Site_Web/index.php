@@ -8,6 +8,8 @@
 **/
 require_once 'Controler/navigation.php';
 
+$_GET['userId'] = 2;
+
 if(isset($_GET['action'])){
     $action = $_GET['action'];
     switch ($action){
@@ -19,8 +21,10 @@ if(isset($_GET['action'])){
             $userInfos = $_POST;
             controlLogin($userInfos);
             break;
-        case 'register':
-            displayRegister();
+        case 'profile' :
+            //require "View/profileUser.php";
+            require "Controler/profile.php";
+            displayProfile($_GET);
             break;
         default:
             displayHome();
