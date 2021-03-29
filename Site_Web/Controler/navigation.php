@@ -39,14 +39,20 @@ function displayLoginWithErrors($errors){
 /**
  * @brief display the profile page with error message
  */
-function displayProfileWithErrors($profileError)
+function displayProfileUserWithErrors($error)
 {
+    Global $profileError;
+    $profileError = $error;
     require "view/profileUser.php";
 }
 
 /**
  * @brief display the login page
  */
-function displayProfile(){
+function displayProfileUser($userImages, $userInfos){
+    Global $userProfileImage;
+    Global $userProfileInfos;
+    $userProfileImage = $userImages;
+    $userProfileInfos = $userInfos;
     require "view/profileUser.php";
 }
