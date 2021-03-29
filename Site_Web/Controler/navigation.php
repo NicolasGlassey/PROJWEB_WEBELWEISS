@@ -36,16 +36,16 @@ function displayProfileUserWithErrors($error)
 {
     Global $profileError;
     $profileError = $error;
-    require "view/profileUser.php";
+    require "View/profileUser.php";
 }
 
 /**
  * @brief display the login page
  */
 function displayProfileUser($userImages, $userInfos){
-    Global $userProfileImage;
+    Global $userProfileImages;
     Global $userProfileInfos;
-    $userProfileImage = $userImages;
+    $userProfileImages = $userImages;
     $userProfileInfos = $userInfos;
-    require "view/profileUser.php";
+    require "View/profileUser.php";
 }

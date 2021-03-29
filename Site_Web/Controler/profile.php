@@ -18,15 +18,15 @@ function displayProfile($profileInfo){
             $userImages =getImagesWithProfile($profileInfo["id"]);
             require_once "Model/userInfoProcess.php";
             $userInfos =getUserInfo($profileInfo["id"]);
-            require_once "controler/navigation.php";
-            displayProfileUser(null ,$userInfos);
+            require_once "Controler/navigation.php";
+            displayProfileUser($userImages ,$userInfos);
         }catch (ImageManagerExeption $ex){
             $error = "L'utilisateur que vous cherchez n'existe pas.";
-            require_once "controler/navigation.php";
+            require_once "Controler/navigation.php";
             displayProfileUserWithErrors($error);
         }
     }else{
-        require_once "controler/navigation.php";
+        require_once "Controler/navigation.php";
         displayHome();
     }
 }

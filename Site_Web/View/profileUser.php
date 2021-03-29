@@ -8,9 +8,10 @@
  */
 $title = "profil";
 ob_start();
+GLOBAL $userProfileImages;
+GLOBAL $userProfileInfos;
 
-
-$userProfileImages = array(
+/*$userProfileImages = array(
         array(
             "name" => "Belle photo",
             "url" => "https://i.pinimg.com/originals/0b/ac/f6/0bacf62a4bd456d02d02c6b8a5c98f67.jpg",
@@ -32,17 +33,22 @@ $userProfileImages = array(
 $userProfileInfos = array(
     "email" => "jonatan.perret@cpnv.ch"
 
-);
+);*/
 
 
 ?>
 
-<?php if(isset($profileError)) {?>
-    <div><?=$profileError?></div>
-<?php }?>
-<?php if (isset($userProfileImages)&&(isset($userProfileInfos))){?>
+
+
 <body class="backgroundProfile">
+<?php if(isset($profileError)) {?>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 UserProfileInfos">
+        <div><h5 class="color-white"><?=$profileError?></h5></div>
+    </div>
+<?php }?>
+
         <!-- Blog Ara Start -->
+        <?php if (isset($userProfileImages)&&(isset($userProfileInfos))){?>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 UserProfileInfos">
             <div><h1 class="color-white"><?=$userProfileInfos['email']?></h1></div>
 
@@ -72,9 +78,9 @@ $userProfileInfos = array(
             </div>
         </div>
         <!-- Blog Ara End -->
+        <?php }?>
 
 </body>
-<?php }?>
 
 
 
