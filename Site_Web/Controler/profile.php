@@ -14,8 +14,8 @@
 function displayProfile($profileInfo){
     if (isset($profileInfo["id"])){
         try {
-           //require_once "Model/imagesManager.php";
-           // $userImages =getImagesWithProfile($profileInfo["id"]);
+            require_once "Model/imagesManager.php";
+            $userImages =getImagesWithProfile($profileInfo["id"]);
             require_once "Model/userInfoProcess.php";
             $userInfos =getUserInfo($profileInfo["id"]);
             require_once "controler/navigation.php";
