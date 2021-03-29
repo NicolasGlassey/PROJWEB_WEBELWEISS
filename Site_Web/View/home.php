@@ -166,7 +166,7 @@ ob_start();
             </div>
             <div class="row justify-content-between">
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-services text-center mb-50">
+                    <div class="single-services text-center mb-50" style="width: 100%">
                         <div class="services-icon">
                             <span class="flaticon-list"></span>
                         </div>
@@ -179,7 +179,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-services text-center mb-50">
+                    <div class="single-services text-center mb-50" style="width: 100%">
                         <div class="services-icon">
                             <span class="flaticon-problem"></span>
                         </div>
@@ -191,7 +191,7 @@ ob_start();
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="single-services text-center mb-50">
+                    <div class="single-services text-center mb-50" style="width: 100%">
                         <div class="services-icon">
                             <span class="flaticon-respect"></span>
                         </div>

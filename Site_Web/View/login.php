@@ -13,7 +13,7 @@ ob_start();
 <body>
 
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('assets/img/LoginBackground.gif');">
+    <div class="container-login100" style="background-image: url('assets/img/Background1.jpg');">
         <div class="wrap-login100">
             <?php
                 // show error message if it has one

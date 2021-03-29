@@ -19,7 +19,7 @@
 .backgroundProfile{
   background-size: 500%;
   background-attachment: fixed;
-  background-image: url("../img/ProfileBackground.jpg");
+  background-image: url("../img/Background1.jpg");
 }
 .coin{
   border-radius:7px;
@@ -27,11 +27,15 @@
 
 .UserProfileInfos{
   margin : auto;
-  margin-top: 20%;
-
-  width: auto;
-  background: white;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
   padding: 20px;
+  margin-top: 150px;
+}
+.color-white{
+  color: white;
 }
 
 
@@ -50,7 +54,7 @@
 }
 @media (max-width: 990px){
   .UserProfileInfos{
-    margin-top: 40%;
+    margin-top: 100px;
   }
 }
 
@@ -60,13 +64,18 @@
   padding: 10px;
   padding-left: 5px;
 }
-.PostLocation{
+.PostDescription{
   font-size: smaller;
-}
-.PostDate{
-  font-size: smaller;
+  margin-right: 20px;
+  text-align: justify;
 }
 
+.img-cropped {
+  object-fit: cover;
+  object-position: center center;
+  width: 250px;
+  height: 250px;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/

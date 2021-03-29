@@ -65,22 +65,12 @@
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.php?action=home">Home</a></li>
+                                    <li><a href="index.php?action=home">Accueil</a></li>
                                     <?php if ((isset($_SESSION['userEmail']))) {?>
                                         <li><a href="index.php?action=profile"><?=$_SESSION['userEmail'] ?></a></li>
                                     <?php } else {?>
                                         <li><a href="index.php?action=profile">Profile</a></li>
                                     <?php }?>
-                                    <li><a href="index.php?action=categories">Categories</a></li>
-                                    <li><a href="#">Page</a>
-                                        <ul class="submenu">
-                                            <li><a href="index.php?action=blog">Blog</a></li>
-                                            <li><a href="index.php?action=blog_details">Blog Details</a></li>
-                                            <li><a href="index.php?action=elements">Element</a></li>
-                                            <li><a href="index.php?action=listing_details">Listing details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index.php?action=contact">Contact</a></li>
                                     <?php if (!(isset($_SESSION['userEmail']))) {?>
                                     <li class="login"><a href="index.php?action=login">
                                             <i class="ti-user"></i> se connecter</a>
@@ -155,7 +145,7 @@
 <!--===============================================================================================-->
 <script src="assets/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="assets/js/main.js"></script>
+
 
 
 
