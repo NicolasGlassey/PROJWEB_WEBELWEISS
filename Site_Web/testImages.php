@@ -1,4 +1,4 @@
-<?php
+5<?php
 /**
  * Project : ProgWEB - Images upload site
  * @file      testImages.php
