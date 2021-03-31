@@ -47,4 +47,4 @@ Vous pouvez maintenant lancer votre serveur WEB en haut à gauche en cliquant su
 L'outil de collaboration externe utilisé est IceScrum. Voici le lien vers la gestion du projet : https://icescrum.cpnv.ch/p/PROJWEBWEB/#/taskBoard/948
 
 ## Wiki
-Un wiki pour toute informations supplémentaires est disponible à cette adresse : https://github.com/NicolasGlassey/PROJWEB_WEBELWEISS/wiki
+Pour voir toutes les informations supplémentaires (sur les codes, mise en place d'un serveur sur internet...), le wiki officiel du projet est disponible à cette adresse : https://github.com/NicolasGlassey/PROJWEB_WEBELWEISS/wiki
