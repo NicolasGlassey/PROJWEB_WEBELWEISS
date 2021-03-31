@@ -18,7 +18,7 @@ Webelweiss est un site web crée par des élèves du CPNV, il a pour but de cré
 - Git-scm (Conseillé pour GitFlow)
 - XDebug pour PHP
 - XDebug extension chrome
-- Celenium IDE
+- Selenium IDE
 - PHPStorm (Version utilisée : 2020.3.2)
 - Un serveur web (Apache...)
 
@@ -45,3 +45,6 @@ Vous pouvez maintenant lancer votre serveur WEB en haut à gauche en cliquant su
 
 ### Collaboration
 L'outil de collaboration externe utilisé est IceScrum. Voici le lien vers la gestion du projet : https://icescrum.cpnv.ch/p/PROJWEBWEB/#/taskBoard/948
+
+## Wiki
+Un wiki pour toute informations supplémentaires est disponible à cette adresse : https://github.com/NicolasGlassey/PROJWEB_WEBELWEISS/wiki
