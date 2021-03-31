@@ -146,7 +146,7 @@ ob_start();
             <!-- More Btn -->
             <div class="row justify-content-center">
                 <div class="room-btn pt-20">
-                    <a href="catagori.html" class="btn view-btn1">View All Places</a>
+                    <a href="index.php" class="btn view-btn1">View All Places</a>
                 </div>
             </div>
         </div>
@@ -224,9 +224,9 @@ ob_start();
                             <span class="flaticon-bed"></span>
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="catagori.html">Leving Hotel</a></h5>
+                            <h5><a href="index.php">Leving Hotel</a></h5>
                             <p>Must explain your how this keind denoun pleasure</p>
-                            <a href="catagori.html">View Details</a>
+                            <a href="index.php">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -236,9 +236,9 @@ ob_start();
                             <span class="flaticon-drink"></span>
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="catagori.html">Night Life</a></h5>
+                            <h5><a href="index.php">Night Life</a></h5>
                             <p>Must explain your how this keind denoun pleasure</p>
-                            <a href="catagori.html">View Details</a>
+                            <a href="index.php">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -248,9 +248,9 @@ ob_start();
                             <span class="flaticon-home"></span>
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="catagori.html">Culture Place</a></h5>
+                            <h5><a href="index.php">Culture Place</a></h5>
                             <p>Must explain your how this keind denoun pleasure</p>
-                            <a href="catagori.html">View Details</a>
+                            <a href="index.php">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -260,9 +260,9 @@ ob_start();
                             <span class="flaticon-food"></span>
                         </div>
                         <div class="cat-cap">
-                            <h5><a href="catagori.html">Resturent</a></h5>
+                            <h5><a href="index.php">Resturent</a></h5>
                             <p>Must explain your how this keind denoun pleasure</p>
-                            <a href="catagori.html">View Details</a>
+                            <a href="index.php">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -414,7 +414,7 @@ ob_start();
                         </div>
                         <div class="team-caption">
                             <span>HEALTH & CARE</span>
-                            <h3><a href="blog.html">The Best SPA Salons For
+                            <h3><a href="index.php">The Best SPA Salons For
                                     Your Relaxation</a></h3>
                             <p>October 6, 2020by Steve</p>
                         </div>
@@ -427,7 +427,7 @@ ob_start();
                         </div>
                         <div class="team-caption">
                             <span>HEALTH & CARE</span>
-                            <h3><a href="blog.html">The Best SPA Salons For
+                            <h3><a href="index.php">The Best SPA Salons For
                                     Your Relaxation</a></h3>
                             <p>October 6, 2020by Steve</p>
                         </div>
@@ -440,7 +440,7 @@ ob_start();
                         </div>
                         <div class="team-caption">
                             <span>HEALTH & CARE</span>
-                            <h3><a href="blog.html">The Best SPA Salons For
+                            <h3><a href="index.php">The Best SPA Salons For
                                     Your Relaxation</a></h3>
                             <p>October 6, 2020by Steve</p>
                         </div>
