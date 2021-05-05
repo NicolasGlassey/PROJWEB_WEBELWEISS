@@ -8,10 +8,10 @@
      */
 
     /**
-     * @brief This class is used to have a special class Exeption for managing Error in the account
-     * Class AccountExeption
+     * @brief This class is used to have a special class Exception for managing Error in the account
+     * Class AccountException
      */
-    class AccountExeption extends Exception{
+    class AccountException extends Exception{
 
     }
 
@@ -20,7 +20,7 @@
      * @param $email
      * @param $pwd
      * @return array|null - Associative array (userInfos) if the user is correct
-     * @throws AccountExeption
+     * @throws AccountException : //TODO on a besion de savoir dans quel cas l'exception est levée
      */
     function login($email,$pwd){
         $result = null;
@@ -32,9 +32,9 @@
                     $userInfos = getUserInfo($userID);
                     require_once("Model/passwordManagement.php");
                     if(verifyPassword($pwd,$userInfos['password'])){
-
                         $result = $userInfos;
                     }else{
+                        //TODO cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
                         throw new AccountExeption("PWD_NOT_CORRESPOND",0);
                     }
                 }else{
@@ -54,7 +54,7 @@
      * @param $email
      * @param $pwd
      * @return array|string[] - Associative array (UserInfos) if no error occurred
-     * @throws AccountExeption
+     * @throws AccountException : //TODO on a besion de savoir dans quel cas l'exception est levée
      */
     function register($email,$pwd){
         $result = null;

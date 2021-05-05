@@ -38,7 +38,7 @@
      * @return false|mixed - Associative array if the user is found and 'false' if the user is not found
      */
     function getUserInfo($userID){
-        $userInfos = false;
+        $userInfos = false;//TODO quel est l'intéret de retourner "false" pour un $userInfos ?
         $usersInJson = getAllUsersArray();
         foreach ($usersInJson as $singleUser){
             if($singleUser['id'] == $userID){
@@ -81,7 +81,6 @@
         }
         return $place;
     }
-
     #endregion
 
     #region Add (Add)
@@ -101,7 +100,6 @@
     #endregion
 
     #region Update (Update)
-
     /**
      * @brief This function is designed to edit the userInfo
      * @param $userProfileInfo - New profile of the user (Associative array)
@@ -114,7 +112,6 @@
         array_push($usersInJson,$userProfileInfo);
         setAllUsersData($usersInJson);
     }
-
     #endregion
 
     #region Delete (Delete)
@@ -129,4 +126,3 @@
         setAllUsersData($usersInJson);
     }
     #endregion
-?>

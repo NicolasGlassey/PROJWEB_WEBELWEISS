@@ -8,7 +8,6 @@
      * @version  1.3 (14.03.2021)
      */
 
-
     /**
      * @brief This function is used to load a JSON file and decode it into a classic PHP array.
      * @param $path - The relative location of the JSON file
@@ -27,11 +26,13 @@
             $fileContent = "[]";
         }
         $JSONarray = json_decode($fileContent,true);
+        //TODO gestion d'exception si le json_decode n'arrive pas à faire son travail ? https://www.php.net/manual/en/class.jsonexception.php
         return $JSONarray;
     }
 
     /**
      * @brief This function id designed to write (replace) the contents of a JSON file with a new recursive array of objects.
+     * @param $fileName - //TODO à écrire
      * @param $path - The relative location of the JSON file
      * @param $contentToWrite - The array to write in the JSON file
      */
@@ -42,6 +43,6 @@
         $jsonFile = fopen($path.$fileName, "w");
         $jsonTextToWrite = json_encode($contentToWrite);
         fwrite($jsonFile, $jsonTextToWrite);
+        //TODO gestion d'exception
         fclose($jsonFile);
     }
-?>

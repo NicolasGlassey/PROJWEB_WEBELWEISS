@@ -22,6 +22,7 @@ function displayLogin(){
 
 /**
  * @brief display the login page with error message
+ * //TODO cette fonction sera remplacée par une gestion d'exception dans displayLogin
  */
 function displayLoginWithErrors($errors){
     GLOBAL $_errorMsg;
@@ -31,6 +32,7 @@ function displayLoginWithErrors($errors){
 
 /**
  * @brief display the profile page with error message
+ * //TODO cette fonction sera remplacée par une gestion d'exception dans displayProfileUser
  */
 function displayProfileUserWithErrors($error)
 {
@@ -41,6 +43,7 @@ function displayProfileUserWithErrors($error)
 
 /**
  * @brief display the login page
+ * //TODO les paramètres ne sont pas documentés
  */
 function displayProfileUser($userImages, $userInfos){
     Global $userProfileImages;

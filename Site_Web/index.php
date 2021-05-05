@@ -8,21 +8,17 @@
 **/
 require_once 'Controler/navigation.php';
 
-$_GET['userId'] = 2;
+$_GET['userId'] = 2;//TODO à supprimer - ne jamais écrire dans les variables $_GET ou $_POST
 
 if(isset($_GET['action'])){
     $action = $_GET['action'];
     switch ($action){
-        case 'home':
-            displayHome();
-            break;
         case 'login':
             require_once 'Controler/login.php';
-            $userInfos = $_POST;
-            controlLogin($userInfos);
+            controlLogin($_POST);
             break;
         case 'profile' :
-            //require "View/profileUser.php";
+            //require "View/profileUser.php";//TODO supprimer cette ligne en commentaire
             require "Controler/profile.php";
             displayProfile($_GET);
             break;

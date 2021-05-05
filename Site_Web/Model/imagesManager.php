@@ -17,17 +17,18 @@ const fileNameImage = 'images.json';
 #endregion
 
 /**
- * @brief For returning special ImageManager Exeptions
- * Class AccountExeption
+ * @brief For returning special ImageManager Exceptions
+ * Class AccountException
  */
-class ImageManagerExeption extends Exception{
+class ImageManagerException extends Exception{
 
 }
 
 /**
  * @brief get all images of a user
  * @param $profileID
- * @return array - all images (can be 0 lenght) ONE IMAGE IS :(person,name,description,url)
+ * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url)
+ * @throw //TODO //TODO on a besion de savoir dans quel cas l'exception est levée
  */
 function getImagesWithProfile($profileID){
     require_once('Model/userInfoProcess.php');
@@ -42,16 +43,16 @@ function getImagesWithProfile($profileID){
             }
         }
     }else{
-        throw new ImageManagerExeption("User not exists",0);
+        //TODO est-ce vraiment une erreur de type ImageManager si l'utilisateur n'existe pas ?
+        throw new ImageManagerException("User not exists",0);
     }
     return $imageOfProfile;
 }
 
 /**
  * @brief get all images on the site
- * @return mixed - all images on the site
+ * @return mixed - all images on the site //TODO reçoit-on vraiement des images ?
  */
 function getAllImages(){
     return getJsonContent(pathNameImage.fileNameImage);
 }
-?>

@@ -96,19 +96,7 @@
 </div>
 <!-- Header End -->
 
-
-
-
-
-
-
-
-
 <?=$content?>
-
-
-
-
 
 <footer>
     <!-- Footer Start-->
