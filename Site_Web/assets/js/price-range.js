@@ -862,7 +862,6 @@
 
         /**
          * Move by key. Beta
-         * @todo refactor than have plenty of time
          *
          * @param right {boolean} direction to move
          */
@@ -2229,7 +2228,6 @@
         },
 
         // Collisions Calc Beta
-        // TODO: Refactor then have plenty of time
         calcGridCollision: function (step, start, finish) {
             var i, next_i, label,
                 num = this.coords.big_num;

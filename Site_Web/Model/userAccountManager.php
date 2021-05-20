@@ -20,31 +20,26 @@
      * @param $email
      * @param $pwd
      * @return array|null - Associative array (userInfos) if the user is correct
-     * @throws AccountException : //TODO on a besion de savoir dans quel cas l'exception est levée
+     * @throws AccountException : If the email / password is not correct or already taken //TODO DONE on a besion de savoir dans quel cas l'exception est levée
      */
     function login($email,$pwd){
         $result = null;
-        if(isset($email) && isset($pwd)){
+        if(isset($email) && isset($pwd)) {
             require_once("Model/userInfoProcess.php");
-            if(str_contains($email, "@") && str_contains($email, ".")){
-                if(isUserExists($email)){
+            if (str_contains($email, "@") && str_contains($email, ".")) {
+                if (isUserExists($email)) {
                     $userID = getUserIDPlace($email);
                     $userInfos = getUserInfo($userID);
                     require_once("Model/passwordManagement.php");
-                    if(verifyPassword($pwd,$userInfos['password'])){
+                    if (verifyPassword($pwd, $userInfos['password'])) {
                         $result = $userInfos;
-                    }else{
-                        //TODO cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
-                        throw new AccountExeption("PWD_NOT_CORRESPOND",0);
                     }
-                }else{
-                    throw new AccountExeption("EMAIL_NOT_FOUND",1);
                 }
-            }else{
-                throw new AccountExeption("EMAIL_IS_NOT_CORRECT",2);
             }
-        }else{
-            throw new AccountExeption("USERFORMINFOS_NOT_FOUND",3);
+        }
+        if($result == null){
+            //TODO cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
+            throw new AccountExeption("LOGIN-ERROR",0);
         }
         return $result;
     }
@@ -54,7 +49,7 @@
      * @param $email
      * @param $pwd
      * @return array|string[] - Associative array (UserInfos) if no error occurred
-     * @throws AccountException : //TODO on a besion de savoir dans quel cas l'exception est levée
+     * @throws AccountException : If the user form is not found, email is not correct, email is already taken or the password dont have the security rules//TODO DONE on a besion de savoir dans quel cas l'exception est levée
      */
     function register($email,$pwd){
         $result = null;

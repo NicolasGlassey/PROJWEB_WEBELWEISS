@@ -35,10 +35,10 @@
     /**
      * @brief This function is designed to obtain all the information of the user by his identifier
      * @param $userID - The identifier
-     * @return false|mixed - Associative array if the user is found and 'false' if the user is not found
+     * @return null|mixed - Associative array if the user is found and 'null' if the user is not found
      */
     function getUserInfo($userID){
-        $userInfos = false;//TODO quel est l'intéret de retourner "false" pour un $userInfos ?
+        $userInfos = null;//TODO quel est l'intéret de retourner "false" pour un $userInfos ?
         $usersInJson = getAllUsersArray();
         foreach ($usersInJson as $singleUser){
             if($singleUser['id'] == $userID){
