@@ -35,10 +35,10 @@
     /**
      * @brief This function is designed to obtain all the information of the user by his identifier
      * @param $userID - The identifier
-     * @return false|mixed - Associative array if the user is found and 'false' if the user is not found
+     * @return null|mixed - Associative array if the user is found and 'null' if the user is not found
      */
     function getUserInfo($userID){
-        $userInfos = false;
+        $userInfos = null;//TODO DONE quel est l'intéret de retourner "false" pour un $userInfos ?
         $usersInJson = getAllUsersArray();
         foreach ($usersInJson as $singleUser){
             if($singleUser['id'] == $userID){
@@ -81,7 +81,6 @@
         }
         return $place;
     }
-
     #endregion
 
     #region Add (Add)
@@ -89,6 +88,7 @@
      * @brief This function is designed to add a user (replacing the actual id)
      * @param $userProfileInfo - New profile of the user (Associative array)
      * @return int - The new user ID in the JSON file
+     * @throws JsonManagerException
      */
     function addUser($userProfileInfo){
         $newUserID = allocateNewCorrectID();
@@ -101,11 +101,11 @@
     #endregion
 
     #region Update (Update)
-
-    /**
-     * @brief This function is designed to edit the userInfo
-     * @param $userProfileInfo - New profile of the user (Associative array)
-     */
+/**
+ * @brief This function is designed to edit the userInfo
+ * @param $userProfileInfo - New profile of the user (Associative array)
+ * @throws JsonManagerException
+ */
     function updateUserInfos($userProfileInfo){
         $userID = $userProfileInfo['id'];
         $placeInArray = getUserIDPlace($userID);
@@ -114,13 +114,13 @@
         array_push($usersInJson,$userProfileInfo);
         setAllUsersData($usersInJson);
     }
-
     #endregion
 
     #region Delete (Delete)
     /**
      * @brief This function is designed to delete the user with his ID
      * @param $userID
+     * @throws JsonManagerException
      */
     function deleteUser($userID){
         $placeInArray = getUserIDPlace($userID);
@@ -129,4 +129,3 @@
         setAllUsersData($usersInJson);
     }
     #endregion
-?>

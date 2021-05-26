@@ -10,7 +10,11 @@
     require_once("Model/userAccountManager.php");
 
     if(isset($_GET['email']) && isset($_GET['pwd'])){
-        $registerResult = register($_GET['email'],$_GET['pwd']);
+        try {
+            $registerResult = register($_GET['email'], $_GET['pwd']);
+        } catch (AccountException $e) {
+
+        }
     }
     $dumb = 0;
 ?>

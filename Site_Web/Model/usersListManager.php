@@ -39,6 +39,7 @@
     /**
      * @brief This function is used to modify the users array (also in the JSON file)
      * @param $newUsersArray - the new users array
+     * @throws JsonManagerException
      */
     function setAllUsersData($newUsersArray){
         GLOBAL $usersArray;

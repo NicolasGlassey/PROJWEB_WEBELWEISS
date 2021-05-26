@@ -8,10 +8,10 @@
      */
 
     /**
-     * @brief This class is used to have a special class Exeption for managing Error in the account
-     * Class AccountExeption
+     * @brief This class is used to have a special class Exception for managing Error in the account
+     * Class AccountException
      */
-    class AccountExeption extends Exception{
+    class AccountException extends Exception{
 
     }
 
@@ -20,31 +20,26 @@
      * @param $email
      * @param $pwd
      * @return array|null - Associative array (userInfos) if the user is correct
-     * @throws AccountExeption
+     * @throws AccountException : If the email / password is not correct or already taken //TODO DONE on a besion de savoir dans quel cas l'exception est levée
      */
     function login($email,$pwd){
         $result = null;
-        if(isset($email) && isset($pwd)){
+        if(isset($email) && isset($pwd)) {
             require_once("Model/userInfoProcess.php");
-            if(str_contains($email, "@") && str_contains($email, ".")){
-                if(isUserExists($email)){
+            if (str_contains($email, "@") && str_contains($email, ".")) {
+                if (isUserExists($email)) {
                     $userID = getUserIDPlace($email);
                     $userInfos = getUserInfo($userID);
                     require_once("Model/passwordManagement.php");
-                    if(verifyPassword($pwd,$userInfos['password'])){
-
+                    if ($userInfos != null && verifyPassword($pwd, $userInfos['password'])) {
                         $result = $userInfos;
-                    }else{
-                        throw new AccountExeption("PWD_NOT_CORRESPOND",0);
                     }
-                }else{
-                    throw new AccountExeption("EMAIL_NOT_FOUND",1);
                 }
-            }else{
-                throw new AccountExeption("EMAIL_IS_NOT_CORRECT",2);
             }
-        }else{
-            throw new AccountExeption("USERFORMINFOS_NOT_FOUND",3);
+        }
+        if($result == null){
+            //TODO DONE cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
+            throw new AccountException("LOGIN-ERROR",0);
         }
         return $result;
     }
@@ -54,7 +49,7 @@
      * @param $email
      * @param $pwd
      * @return array|string[] - Associative array (UserInfos) if no error occurred
-     * @throws AccountExeption
+     * @throws AccountException : If the user form is not found, email is not correct, email is already taken or the password dont have the security rules//TODO DONE on a besion de savoir dans quel cas l'exception est levée
      */
     function register($email,$pwd){
         $result = null;
@@ -69,21 +64,28 @@
                             "email" => $email
                           , "password" => $hashedPassword
                         );
-                        addUser($userProfile);
+                        try{
+                            addUser($userProfile);
+                        }catch (JsonManagerException $ex){//Cannot write in the JSON file
+                            throw new AccountException("USER_NOT_CREATED",6);
+                        }
                         $userID = getUserID($email);
                         $userInfos = getUserInfo($userID);
+                        if($userInfos == null){
+                            throw new AccountException("USER_NOT_CREATED",6);
+                        }
                         $result = $userInfos;
                     } else {
-                        throw new AccountExeption("PWD_POLICY",4);
+                        throw new AccountException("PWD_POLICY",4);
                     }
                 }else{
-                    throw new AccountExeption("EMAIL_ALREADY_TAKEN",5);
+                    throw new AccountException("EMAIL_ALREADY_TAKEN",5);
                 }
             }else{
-                throw new AccountExeption("EMAIL_IS_NOT_CORRECT",2);
+                throw new AccountException("EMAIL_IS_NOT_CORRECT",2);
             }
         }else{
-            throw new AccountExeption("USERFORMINFOS_NOT_FOUND",3);
+            throw new AccountException("USERFORMINFOS_NOT_FOUND",3);
         }
         return $result;
     }

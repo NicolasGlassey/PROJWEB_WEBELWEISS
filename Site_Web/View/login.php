@@ -13,6 +13,9 @@ ob_start();
 <body>
 
 <div class="limiter">
+    <?php
+    //TODO revoir le chemin d'accès à asset
+    ?>
     <div class="container-login100" style="background-image: url('assets/img/Background1.jpg');">
         <div class="wrap-login100">
             <?php

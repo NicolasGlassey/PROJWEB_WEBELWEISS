@@ -10,6 +10,10 @@ $title = "profil";
 ob_start();
 GLOBAL $userProfileImages;
 GLOBAL $userProfileInfos;
+?>
+
+<?php
+//TODO à supprimer
 
 /*$userProfileImages = array(
         array(
@@ -81,27 +85,6 @@ $userProfileInfos = array(
         <?php }?>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 $content = ob_get_clean();

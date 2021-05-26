@@ -8,6 +8,8 @@
  **/
 $title = "accueil";
 ob_start();
+
+//TODO cette vue doit être "lavée" pour n'afficher que les fonctionnalités qui sont fonctionnelles et utiles pour votre application web.
 ?>
 <body>
 <!-- Preloader Start -->

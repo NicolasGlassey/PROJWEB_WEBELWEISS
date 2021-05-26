@@ -3,7 +3,7 @@
  *  @file      login.php
     @brief     handle to authenticate a user
     @author    Created by Jonatan PERRET, Eliott JAQUIER
-    @version   0.2 (08.03.2021)
+    @version   0.3 (26.05.2021)
  **/
 
 
@@ -14,33 +14,17 @@
 function controlLogin($userInfos){
     require_once("Controler/navigation.php");
     if (!(isset($userInfos['email'])) || !(isset($userInfos['password']))){
-        displayLogin();
+        displayLogin(null);
     }else{
         try{
             require_once("Model/userAccountManager.php");
-            $userResultLoginInfos = login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
+            //TODO DONE cette varialbe $userResultLoginInfos n'est jamais utilisée. A revoir.
+            login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
             displayHome();
-        }catch (AccountExeption $ex){
-            if($ex->getCode() == 3){
-                displayLogin();
-            }else{
-                displayLoginWithErrors('Vos données de connexion sont erronées. Veuillez réessayer.');
-            }
+        }catch (AccountException $ex){
+            displayLogin('Vos données de connexion sont erronées. Veuillez réessayer.');
+                //TODO DONE cette fonction doit être revue. Utilisation d'une exception à la place de cette fonction"WithErrors".
+                //TODO DONE en cas d'erreur, la vue affiche des données confidentielles et techniques à l'utilisateur.
         }
-    }
-}
-
-/**
- * @brief display the good page if the register failed or success
- */
-function controlRegister(){
-    require_once("Controler/navigation.php");
-    try{
-        require_once("Model/userAccountManager.php");
-        //$userResultLoginInfos = register(email,passwprd);
-    }catch (AccountExeption $ex){
-        /*if($ex->getCode() == 3){
-
-        }*/
     }
 }
