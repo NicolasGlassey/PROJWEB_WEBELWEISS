@@ -21,7 +21,7 @@ function controlLogin($userInfos){
             //TODO cette varialbe $userResultLoginInfos n'est jamais utilisée. A revoir.
             $userResultLoginInfos = login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
             displayHome();
-        }catch (AccountExeption $ex){
+        }catch (AccountException $ex){
             if($ex->getCode() == 3){
                 displayLogin();
             }else{

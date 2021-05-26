@@ -31,15 +31,15 @@
                     $userID = getUserIDPlace($email);
                     $userInfos = getUserInfo($userID);
                     require_once("Model/passwordManagement.php");
-                    if (verifyPassword($pwd, $userInfos['password'])) {
+                    if ($userInfos != null && verifyPassword($pwd, $userInfos['password'])) {
                         $result = $userInfos;
                     }
                 }
             }
         }
         if($result == null){
-            //TODO cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
-            throw new AccountExeption("LOGIN-ERROR",0);
+            //TODO DONE cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
+            throw new AccountException("LOGIN-ERROR",0);
         }
         return $result;
     }
@@ -64,21 +64,28 @@
                             "email" => $email
                           , "password" => $hashedPassword
                         );
-                        addUser($userProfile);
+                        try{
+                            addUser($userProfile);
+                        }catch (JsonManagerException $ex){//Cannot write in the JSON file
+                            throw new AccountException("USER_NOT_CREATED",6);
+                        }
                         $userID = getUserID($email);
                         $userInfos = getUserInfo($userID);
+                        if($userInfos == null){
+                            throw new AccountException("USER_NOT_CREATED",6);
+                        }
                         $result = $userInfos;
                     } else {
-                        throw new AccountExeption("PWD_POLICY",4);
+                        throw new AccountException("PWD_POLICY",4);
                     }
                 }else{
-                    throw new AccountExeption("EMAIL_ALREADY_TAKEN",5);
+                    throw new AccountException("EMAIL_ALREADY_TAKEN",5);
                 }
             }else{
-                throw new AccountExeption("EMAIL_IS_NOT_CORRECT",2);
+                throw new AccountException("EMAIL_IS_NOT_CORRECT",2);
             }
         }else{
-            throw new AccountExeption("USERFORMINFOS_NOT_FOUND",3);
+            throw new AccountException("USERFORMINFOS_NOT_FOUND",3);
         }
         return $result;
     }

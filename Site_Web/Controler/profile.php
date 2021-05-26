@@ -20,7 +20,7 @@ function displayProfile($profileInfo){
             require_once "Model/userInfoProcess.php";
             $userInfos =getUserInfo($profileInfo["id"]);
             displayProfileUser($userImages ,$userInfos);
-        }catch (ImageManagerExeption $ex){
+        }catch (ImageManagerUserException $ex){
             $error = "L'utilisateur que vous cherchez n'existe pas.";
             //TODO cette fonction doit être revue. Utiliser une fonction "withErrors" n'est pas une bonne idée. Levée une exception avec "throw new Exception". Laissez là remonter jusqu'à la fonction qui est censé la traiter.
             displayProfileUserWithErrors($error);

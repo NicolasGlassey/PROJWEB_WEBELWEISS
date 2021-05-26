@@ -60,6 +60,6 @@
         if(fwrite($jsonFile, $jsonTextToWrite) == false){
             throw new JsonManagerException("Cannot write in the JSON file",1);
         }
-        //TODO gestion d'exception
+        //TODO DONE gestion d'exception
         fclose($jsonFile);
     }

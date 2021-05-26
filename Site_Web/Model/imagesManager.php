@@ -17,10 +17,10 @@ const fileNameImage = 'images.json';
 #endregion
 
 /**
- * @brief For returning special ImageManager Exceptions
+ * @brief For returning special ImageManager Exceptions relative to the user
  * Class AccountException
  */
-class ImageManagerException extends Exception{
+class ImageManagerUserException extends Exception{
 
 }
 
@@ -28,14 +28,14 @@ class ImageManagerException extends Exception{
  * @brief get all images of a user
  * @param $profileID
  * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url)
- * @throws ImageManagerException - throw "User not exists" if the $profileID is not in the Database //TODO DONE on a besion de savoir dans quel cas l'exception est levée
+ * @throws ImageManagerUserException - throw "User not exists" if the $profileID is not in the Database //TODO DONE on a besion de savoir dans quel cas l'exception est levée
  */
 function getImagesWithProfile($profileID){
     require_once('Model/userInfoProcess.php');
     $userProfile = getUserInfo($profileID);
     $imageOfProfile = array();
 
-    if($userProfile != false){
+    if($userProfile != null){
         $images = getAllImages();
         foreach ($images as $image) {
             if($image["person"] == $profileID){
@@ -43,8 +43,8 @@ function getImagesWithProfile($profileID){
             }
         }
     }else{
-        //TODO est-ce vraiment une erreur de type ImageManager si l'utilisateur n'existe pas ?
-        throw new ImageManagerException("There are no image for ",0);
+        //TODO DONE est-ce vraiment une erreur de type ImageManager si l'utilisateur n'existe pas ?
+        throw new ImageManagerUserException("User not exists",0);
     }
     return $imageOfProfile;
 }
