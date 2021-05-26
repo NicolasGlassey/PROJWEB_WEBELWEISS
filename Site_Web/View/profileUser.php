@@ -14,7 +14,7 @@ GLOBAL $userProfileInfos;
 
 <?php
 //TODO à supprimer
-?>
+
 /*$userProfileImages = array(
         array(
             "name" => "Belle photo",
