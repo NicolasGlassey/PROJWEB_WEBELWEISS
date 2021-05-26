@@ -2,8 +2,8 @@
 /**
      @file      navigation.php
      @brief     redirecting user
-     @author    Created by Jonatan PERRET, Eliott JAQUIER, MIkael Juillet
-     @version   0.2 (27.03.2021)
+     @author    Created by Jonatan PERRET, Eliott JAQUIER, Mikael Juillet
+     @version   0.3 (26.05.2021)
 **/
 
 /**
@@ -15,39 +15,27 @@ function displayHome(){
 
 /**
  * @brief display the login page
+ * @param $errors - get errors
  */
-function displayLogin(){
+function displayLogin($errors){
+    GLOBAL $_errorMsg;
+    $_errorMsg = $errors;
     require 'View/login.php';
 }
 
 /**
- * @brief display the login page with error message
- * //TODO cette fonction sera remplacée par une gestion d'exception dans displayLogin
- */
-function displayLoginWithErrors($errors){
-    GLOBAL $_errorMsg;
-    $_errorMsg = $errors;
-    displayLogin();
-}
-
-/**
- * @brief display the profile page with error message
- * //TODO cette fonction sera remplacée par une gestion d'exception dans displayProfileUser
- */
-function displayProfileUserWithErrors($error)
-{
-    Global $profileError;
-    $profileError = $error;
-    require "View/profileUser.php";
-}
-
-/**
  * @brief display the login page
- * //TODO les paramètres ne sont pas documentés
+ * @param $userImages - retrieve images and their information from an user
+ * @param $userInfos - get information about an user
+ * @param $error - get errors
+ * //TODO DONE les paramètres ne sont pas documentés
  */
-function displayProfileUser($userImages, $userInfos){
+function displayProfileUser($userImages, $userInfos, $error){
     Global $userProfileImages;
     Global $userProfileInfos;
+    Global $profileError;
+
+    $profileError = $error;
     $userProfileImages = $userImages;
     $userProfileInfos = $userInfos;
     require "View/profileUser.php";
