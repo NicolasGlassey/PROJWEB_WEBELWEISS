@@ -20,7 +20,7 @@
      * @param $email
      * @param $pwd
      * @return array|null - Associative array (userInfos) if the user is correct
-     * @throws AccountException : If the email / password is not correct or already taken //TODO DONE on a besion de savoir dans quel cas l'exception est levée
+     * @throws AccountException : If the email / password is not correct or already taken
      */
     function login($email,$pwd){
         $result = null;
@@ -38,7 +38,6 @@
             }
         }
         if($result == null){
-            //TODO DONE cette liste d'exception doit être simplifiée car in fine, le résultat est le même (on redemande le login à l'utilisateur, sans lui spécifier la nature de l'erreur).
             throw new AccountException("LOGIN-ERROR",0);
         }
         return $result;
@@ -49,7 +48,7 @@
      * @param $email
      * @param $pwd
      * @return array|string[] - Associative array (UserInfos) if no error occurred
-     * @throws AccountException : If the user form is not found, email is not correct, email is already taken or the password dont have the security rules//TODO DONE on a besion de savoir dans quel cas l'exception est levée
+     * @throws AccountException : If the user form is not found, email is not correct, email is already taken or the password dont have the security rules
      */
     function register($email,$pwd){
         $result = null;

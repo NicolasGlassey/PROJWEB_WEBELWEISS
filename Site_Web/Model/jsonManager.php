@@ -36,7 +36,6 @@
         }
         try{
             $JSONarray = json_decode($fileContent,true);
-            //TODO DONE gestion d'exception si le json_decode n'arrive pas à faire son travail ? https://www.php.net/manual/en/class.jsonexception.php
         }catch (JsonException $exeption){
             $JSONarray = array();
             throw new JsonManagerException("Json decoder cannot decode",0);
@@ -46,7 +45,7 @@
 
     /**
      * @brief This function id designed to write (replace) the contents of a JSON file with a new recursive array of objects.
-     * @param $fileName - The name of the file only (not the path) //TODO DONE à écrire
+     * @param $fileName - The name of the file only (not the path)
      * @param $path - The relative location of the JSON file (path only)
      * @param $contentToWrite - The array to write in the JSON file
      * @throws JsonManagerException - If write cannot work
@@ -60,6 +59,5 @@
         if(fwrite($jsonFile, $jsonTextToWrite) == false){
             throw new JsonManagerException("Cannot write in the JSON file",1);
         }
-        //TODO DONE gestion d'exception
         fclose($jsonFile);
     }
