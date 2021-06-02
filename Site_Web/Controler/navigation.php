@@ -28,7 +28,6 @@ function displayLogin($errors){
  * @param $userImages - retrieve images and their information from an user
  * @param $userInfos - get information about an user
  * @param $error - get errors
- * //TODO DONE les paramètres ne sont pas documentés
  */
 function displayProfileUser($userImages, $userInfos, $error){
     Global $userProfileImages;
