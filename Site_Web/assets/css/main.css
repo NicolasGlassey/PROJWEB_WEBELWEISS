@@ -258,6 +258,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
+  background-image: url('../img/Background1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -270,6 +271,7 @@ iframe {
   content: "";
   display: block;
   position: absolute;
+  background-image: url('assets/img/Background1.jpg');
   z-index: -1;
   width: 100%;
   height: 100%;
