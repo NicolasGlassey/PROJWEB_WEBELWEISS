@@ -18,13 +18,10 @@ function controlLogin($userInfos){
     }else{
         try{
             require_once("Model/userAccountManager.php");
-            //TODO DONE cette varialbe $userResultLoginInfos n'est jamais utilisée. A revoir.
             login(htmlspecialchars($userInfos['email']),htmlspecialchars($userInfos['password']));
             displayHome();
         }catch (AccountException $ex){
             displayLogin('Vos données de connexion sont erronées. Veuillez réessayer.');
-                //TODO DONE cette fonction doit être revue. Utilisation d'une exception à la place de cette fonction"WithErrors".
-                //TODO DONE en cas d'erreur, la vue affiche des données confidentielles et techniques à l'utilisateur.
         }
     }
 }
