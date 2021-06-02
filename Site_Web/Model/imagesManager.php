@@ -28,7 +28,7 @@ class ImageManagerUserException extends Exception{
  * @brief get all images of a user
  * @param $profileID
  * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url)
- * @throws ImageManagerUserException - throw "User not exists" if the $profileID is not in the Database //TODO DONE on a besion de savoir dans quel cas l'exception est levée
+ * @throws ImageManagerUserException - throw "User not exists" if the $profileID is not in the Database
  */
 function getImagesWithProfile($profileID){
     require_once('Model/userInfoProcess.php');
@@ -43,7 +43,6 @@ function getImagesWithProfile($profileID){
             }
         }
     }else{
-        //TODO DONE est-ce vraiment une erreur de type ImageManager si l'utilisateur n'existe pas ?
         throw new ImageManagerUserException("User not exists",0);
     }
     return $imageOfProfile;
@@ -51,7 +50,7 @@ function getImagesWithProfile($profileID){
 
 /**
  * @brief get all images on the site
- * @return mixed - all images on the site //TODO DONE reçoit-on vraiement des images ? Oui car c'est le JSON images.json qui est chargé
+ * @return mixed - all images on the site
  */
 function getAllImages(){
     return getJsonContent(pathNameImage.fileNameImage);

@@ -16,7 +16,6 @@
         $isPwdGood = true;
 
         //Constraints of strong password
-        //TODO DONE revoir cette liste de if. Il y a la possiblilité de tout tester à l'aide d'un seul appel. Le résultat étant tout le temps le même en cas de non respect des contraintes.
         if(strlen($plainTextPassword) < 8 || !preg_match('@[A-Z]@', $plainTextPassword) || !preg_match('@[a-z]@', $plainTextPassword) || !preg_match('@[0-9]@', $plainTextPassword) || !preg_match('@[^\w]@', $plainTextPassword)){
             $isPwdGood = false;
         }
@@ -51,6 +50,5 @@
      * @return bool - If the password correspond
      */
     function verifyPassword($passwordToVerify,$passwordHashed){
-        //TODO DONE pourquoi ne pas intégrer ici la validation du password à l'aide de preg match à l'aide d'un seul appel ?
         return password_verify($passwordToVerify,$passwordHashed) && isPasswordGood($passwordToVerify);
     }

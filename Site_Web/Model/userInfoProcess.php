@@ -38,7 +38,7 @@
      * @return null|mixed - Associative array if the user is found and 'null' if the user is not found
      */
     function getUserInfo($userID){
-        $userInfos = null;//TODO DONE quel est l'intéret de retourner "false" pour un $userInfos ?
+        $userInfos = null;
         $usersInJson = getAllUsersArray();
         foreach ($usersInJson as $singleUser){
             if($singleUser['id'] == $userID){
