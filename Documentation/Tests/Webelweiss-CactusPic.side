@@ -1,0 +1,287 @@
+{
+  "id": "d510a99f-3863-4b85-afcb-24b57fc47270",
+  "version": "2.0",
+  "name": "Webelweiss-CactusPic",
+  "url": "http://localhost:8080/Site_Web/",
+  "tests": [{
+    "id": "7d891cde-2ca4-43e5-a18b-b97e0c3f47cb",
+    "name": "Ajout d'un utilisateur JSON de test",
+    "commands": [{
+      "id": "e4c2b020-e2ae-4be7-bf81-1c3e05005ddf",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/userAccountTesting.php?email=hello@hello.com&pwd=Hey%C2%A3Bonsoir234%C3%A9%C3%A0%C3%A9.%C3%A0",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "34669459-2d4a-4239-9474-c95a8e31f3d9",
+    "name": "AuthCorrect",
+    "commands": [{
+      "id": "ba2f89aa-6f11-46d6-9c23-e5dd60ae25d4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/index.php?action=login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ee01d737-34a9-447b-936f-8dff6e9fca5b",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4224180-ffa7-4f37-ae5f-63bbe78f02e8",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Hey£Bonsoir234éàé.à"
+    }, {
+      "id": "ae764717-16d2-47de-9533-24f47deeba71",
+      "comment": "",
+      "command": "click",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "587fbce1-9cdb-4d34-bbe7-1ad3b0faf662",
+      "comment": "",
+      "command": "type",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "hello@hello.com"
+    }, {
+      "id": "7d59a342-06f8-4fb7-b080-b3f8a25309d5",
+      "comment": "",
+      "command": "click",
+      "target": "id=LoginButton",
+      "targets": [
+        ["id=LoginButton", "id"],
+        ["css=#LoginButton", "css:finder"],
+        ["xpath=//button[@id='LoginButton']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6109fc1a-2f82-4122-ac97-2a1338cfb24a",
+    "name": "AuthFalseMail",
+    "commands": [{
+      "id": "e1616621-8921-433a-9131-6ef3bdd45ce0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/index.php?action=login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a801a81-cb5c-473a-ab19-7fdef7d2299d",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f518d2f2-1ce4-432e-bce9-ddb9bf6eeb34",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Hey£Bonsoir234éàé.à"
+    }, {
+      "id": "34358c03-d97b-4ed5-ac6e-09ceab5c6002",
+      "comment": "",
+      "command": "click",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46815e34-8bd6-4696-b29e-5057677db79c",
+      "comment": "",
+      "command": "type",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "hello@hello.com2"
+    }, {
+      "id": "7f6b1774-6a05-4982-ac34-b84c84ea1b7e",
+      "comment": "",
+      "command": "click",
+      "target": "id=LoginButton",
+      "targets": [
+        ["id=LoginButton", "id"],
+        ["css=#LoginButton", "css:finder"],
+        ["xpath=//button[@id='LoginButton']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "82efe592-d2fa-4fce-a22a-6f99b258fda7",
+    "name": "AuthFalsePwd",
+    "commands": [{
+      "id": "e3e4f634-f704-4315-adf7-b9cd6cf01fe4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/index.php?action=login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ec7f81d-b706-45b1-866d-9dadd3cf846c",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8797ef7a-eab7-42bf-b571-ce3a7693115b",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.wrap-input100:nth-child(2) > .input100", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Bonjour"
+    }, {
+      "id": "f08726b2-368c-4e86-a8c5-65056415ddc4",
+      "comment": "",
+      "command": "click",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e024b77-88b2-46a1-a2a1-9dee50b59d51",
+      "comment": "",
+      "command": "type",
+      "target": "id=EmailInput",
+      "targets": [
+        ["id=EmailInput", "id"],
+        ["name=email", "name"],
+        ["css=#EmailInput", "css:finder"],
+        ["xpath=//input[@id='EmailInput']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "hello@hello.com"
+    }, {
+      "id": "84de06b0-2773-469c-993b-8c81bd4de869",
+      "comment": "",
+      "command": "click",
+      "target": "id=LoginButton",
+      "targets": [
+        ["id=LoginButton", "id"],
+        ["css=#LoginButton", "css:finder"],
+        ["xpath=//button[@id='LoginButton']", "xpath:attributes"],
+        ["xpath=//form[@id='LoginForm']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'se connecter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3111632b-06b9-46de-9a9f-2450608acb53",
+    "name": "Consulter l'utilisateur 1",
+    "commands": [{
+      "id": "50342a4c-a545-4938-9e8d-eeaac1bce8de",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/index.php?action=profile&id=1",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d3b54bbc-4ff3-461a-927f-1fa60d2d2156",
+    "name": "Consulter l'utilisateur 1000",
+    "commands": [{
+      "id": "8b8d9edf-6573-4648-8b34-8cde363f0341",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Site_Web/index.php?action=profile&id=1000",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cd59d505-e9f9-4014-8677-2f282974fb8d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Site_Web/userAccountTesting.php?email=hello@hello.com&pwd=Hey%C2%A3Bonsoir234%C3%A9%C3%A0%C3%A9.%C3%A0", "http://localhost:8080/Site_Web/"],
+  "plugins": []
+}

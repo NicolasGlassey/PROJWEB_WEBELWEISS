@@ -1,0 +1,6 @@
+Text : 65K caractères
+Email : 320 characters ("local part": 64 + "@": 1 + "domain part": 255 which sums to 320)
+Nom + prénom : Etats unis : 50
+Lat/long = !float round https://stackoverflow.com/questions/12504208/what-mysql-data-type-should-be-used-for-latitude-longitude-with-8-decimal-places
+hash = Sha256 length 64
+https://www.google.com/search?q=sha256+string+length&rlz=1C1CHBF_frCH916CH916&sxsrf=ALeKk02wexBB51QbJJMj4Zof2_ZbwKrXLw%3A1620220909798&ei=7ZuSYMD4L4KSaNv2vqAD&oq=sha256+string+length&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEMsBMgYIABAIEB4yBggAEAgQHjoHCAAQRxCwAzoHCAAQsAMQQzoECCMQJzoGCAAQBxAeOggIABAHEAoQHjoICAAQCBAHEB5Q-zFY-Tdg-ThoA3ACeACAAY4BiAGEBpIBAzYuMpgBAKABAaoBB2d3cy13aXrIAQrAAQE&sclient=gws-wiz&ved=0ahUKEwiAo6Se0bLwAhUCCRoKHVu7DzQQ4dUDCA4&uact=5
