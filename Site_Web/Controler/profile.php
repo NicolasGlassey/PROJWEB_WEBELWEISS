@@ -21,7 +21,7 @@ function displayProfile($profileInfo){
             require_once "Model/imagesManager.php";
             $userImages =getImagesWithProfile($profileInfo["id"]);
             require_once "Model/userInfoProcess.php";
-            $userInfos =getUserInfo($profileInfo["id"]);
+            $userInfos = getUserInfosByID($profileInfo["id"]);
         }catch (ImageManagerUserException $ex){
             $error = "L'utilisateur que vous cherchez n'existe pas.";
         }finally{

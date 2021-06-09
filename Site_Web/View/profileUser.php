@@ -24,33 +24,37 @@ GLOBAL $userProfileInfos;
         <!-- Blog Ara Start -->
         <?php if (isset($userProfileImages)&&(isset($userProfileInfos))){?>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 UserProfileInfos">
-            <div><h1 class="color-white"><?=$userProfileInfos['email']?></h1></div>
-
+            <div><h1 class="color-white"><?=$userProfileInfos['firstname']?> <?=$userProfileInfos['lastname']?></h1></div>
+            <div><p class="color-white"><?=$userProfileInfos['email']?></p></div>
         </div>
 
-
-
-        <div class="home-blog-area section-padding30" style="margin: 30px">
-            <div class="container">
-                <div class="row">
-                    <?php foreach ($userProfileImages as $postInfos) {?>
-                    <div class="col-lg-5 col-md-10 col-sm-10 post">
-                        <div class="mb-10 single-team">
-                            <div class="team-caption">
-                                <div class="UserName"><?=$postInfos['name']?></div>
-                            </div>
-                            <div class="team-img coin">
-                                <img src="<?=$postInfos['url']?>" class="img-cropped">
-                            </div>
-                        </div>
-                        <div class="row" style="margin-left: 1px; margin-bottom: 10px">
-                            <div class="PostDescription"><?=$postInfos['description']?></div>
+            <?php if(count($userProfileImages) == 0):?>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 UserProfileInfos">
+                    <div><h5 class="color-white">Cet utilisateur n'a pas d'images</h5></div>
+                </div>
+            <?php else:?>
+                <div class="home-blog-area section-padding30" style="margin: 30px">
+                    <div class="container">
+                        <div class="row">
+                            <?php foreach ($userProfileImages as $postInfos) {?>
+                                <div class="col-lg-5 col-md-10 col-sm-10 post">
+                                    <div class="mb-10 single-team">
+                                        <div class="team-caption">
+                                            <div class="UserName"><?=$postInfos['name']?></div>
+                                        </div>
+                                        <div class="team-img coin">
+                                            <img src="<?=$postInfos['imagePath']?>" class="img-cropped">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: 1px; margin-bottom: 10px">
+                                        <div class="PostDescription"><?=$postInfos['description']?> <p><?=$postInfos['takenDate']?></p> <p>Lon:<?=$postInfos['longitude']?> Lat:<?=$postInfos['latitude']?></p></div>
+                                    </div>
+                                </div>
+                            <?php }?>
                         </div>
                     </div>
-                    <?php }?>
                 </div>
-            </div>
-        </div>
+            <?php endif;?>
         <!-- Blog Ara End -->
         <?php }?>
 
