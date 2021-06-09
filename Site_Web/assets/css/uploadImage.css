@@ -1,0 +1,9 @@
+.uploadImage_body{
+    background-color: #41893d;
+}
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+    display: none;
+}

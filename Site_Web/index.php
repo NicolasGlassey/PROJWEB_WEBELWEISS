@@ -1,10 +1,10 @@
 <?php
-
 /**
     @file      index.php
     @brief     redirect user where he has to go
     @author    Created by Jonatan PERRET
-    @version   0.1 (08.03.2021)
+    @author    Updated by Mikael Juillet
+    @version   0.2 (09.06.2021)
 **/
 require_once 'Controler/navigation.php';
 
@@ -18,6 +18,9 @@ if(isset($_GET['action'])){
         case 'profile' :
             require "Controler/profile.php";
             displayProfile($_GET);
+            break;
+        case 'uploadImage' :
+            require "view/uploadImage.php";
             break;
         default:
             displayHome();

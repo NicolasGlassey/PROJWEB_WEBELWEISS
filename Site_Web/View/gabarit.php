@@ -36,6 +36,7 @@
 
 
     <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/uploadImage.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -70,6 +71,11 @@
                                         <li><a href="index.php?action=profile"><?=$_SESSION['userEmail'] ?></a></li>
                                     <?php } else {?>
                                         <li><a href="index.php?action=profile">Profile</a></li>
+                                    <?php }?>
+                                    <?php if ((isset($_SESSION['userEmail']))) {?>
+                                        <li>
+                                            <a href="index.php?action=uploadImage">Ajouter une image</a>
+                                        </li>
                                     <?php }?>
                                     <?php if (!(isset($_SESSION['userEmail']))) {?>
                                     <li class="login"><a href="index.php?action=login">
@@ -170,4 +176,5 @@
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
 
-
+<!--uploadImages js -->
+<script src="./assets/js/uploadImage.js"></script>
