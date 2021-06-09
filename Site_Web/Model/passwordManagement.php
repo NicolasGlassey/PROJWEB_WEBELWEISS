@@ -52,3 +52,4 @@
     function verifyPassword($passwordToVerify,$passwordHashed){
         return password_verify($passwordToVerify,$passwordHashed) && isPasswordGood($passwordToVerify);
     }
+?>
