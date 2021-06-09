@@ -46,3 +46,4 @@ function getImagesWithProfile($profileID): array
 function getAllImages(){
     return executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos",null);
 }
+?>
