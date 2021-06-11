@@ -6,6 +6,7 @@
     @author    Updated by Mikael Juillet
     @version   0.2 (09.06.2021)
 **/
+session_start();
 require_once 'Controler/navigation.php';
 
 if(isset($_GET['action'])){
@@ -14,6 +15,11 @@ if(isset($_GET['action'])){
         case 'login':
             require_once 'Controler/login.php';
             controlLogin($_POST);
+            break;
+        case 'logout':
+            require_once 'Controler/login.php';
+            logout();
+            displayHome();
             break;
         case 'profile' :
             require "Controler/profile.php";
