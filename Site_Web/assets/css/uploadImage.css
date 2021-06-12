@@ -2,28 +2,41 @@
  * @file    uploadImage.css
  * @brief   This script is used for make style on uploadImage.php
  * @author  Craeted by Mikael Juillet
- * @version 09.06.2021 // 0.1
+ * @version 12.06.2021 // 0.2
  */
 
 .uploadImage_body{
-    background-attachment: fixed;
     background-image: url("../img/gallery/section_bg03.png");
-    background-repeat: no-repeat;
-    object-fit: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    object-fit: cover;
+}
+
+.container-login200 {
+    width: 100%;
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 .uploadImage_choseFile{
-    position: relative;
     left: 25%;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    background-color: #4e555b;
 }
 
 .drop-zone {
     background: url("../img/data-transfer-download-128.ico") center, #808080e8;
     background-repeat: no-repeat;
+    background-size: 15%;
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
-    left: 25%;
     height: 500px;
     padding: 25px;
     display: flex;
@@ -33,6 +46,7 @@
     color: #FFFFFF;
     border: 4px dashed white;
     border-radius: 10px;
+    left: 25%;
 }
 
 .drop-zone--over {
@@ -67,10 +81,29 @@
 }
 
 
-.uploadImage_form{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative;
+@media (max-width: 575px){
+    .drop-zone{ left: 5%; height: 300px; max-width: 90%}
+    .uploadImage_choseFile{left: 5%}
+
 }
+@media (max-height: 770px){
+    .drop-zone{height: 150px}
+}
+
+/*==============UploadForm.php================*/
+
+.uploadImage_form{
+    margin-top: 15px;
+    text-align: left;
+    font-size: large;
+    color: #FFFFFF;
+}
+.uploadImage_form .row{
+    margin: 10px;
+}
+.uploadImage_title {
+    color: #FFFFFF;
+    text-align: center;
+    margin: 10px;
+}
+
