@@ -3,7 +3,7 @@
  * @file    uploadForm.php
  * @brief   This script is used for make user anser an form for upload an image
  * @author  Craeted by Mikael Juillet
- * @version 09.06.2021 // 0.1
+ * @version 13.06.2021 // 0.2
  */
 
 $title = "connection";
@@ -15,34 +15,45 @@ ob_start();
                     <div><h1 class=" color-white">Ajout d'une image</h1></div>
                 </div>
             </div>
-
-            <form method="post" action="index.php?action=login" class="uploadImage_form">
-                <h3 class="uploadImage_title col-xl-2 col-lg-2 col-md-3 col-sm-3">hdskjhadkjshkdjh</h3>
+            <form method="post" action="index.php?action=uploadImage" class="uploadImage_form">
+                <h3 class="uploadImage_title col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Informations</h3>
+                <?php if() {  ?>
+                <div class="uploadImageView">
+                    <img src="<?php ?>">
+                    <div class="fileName"><?php ?></div>
+                <?php } else{?>
+                    <img src="assets\img\image-not-found.png">
+                    <div class="fileName"><?php ?></div>
+                </div>
+                <?php }?>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="text" name="" placeholder="" checked>
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3 upload_require">Nom <strong>*</strong></div>
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="imageNameInput"  required>
                 </div>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="text" name="" placeholder="">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Lieu</div>
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="placesInput" >
                 </div>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="text" name="" placeholder="">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Longitude</div>
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="longitudeInput" >
                 </div>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="text" name="" placeholder="">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Latitude</div>
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="latitudeInput" >
                 </div>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="date" name="" placeholder="">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Date</div>
+                    <input class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-8" type="date" name="dateImput">
+                </div>
+                <div class="row uploadImage_formDesc">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Description</div>
+                    <textarea class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="DescInput"></textarea>
                 </div>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3">hgfdhfghfhgfh</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8" type="text" name="" placeholder="">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3"></div>
+                    <button type="submit" class="btn">Poster</button>
                 </div>
-                    <button type="submit" class="btn btn-secondary">Poster</button>
             </form>
     </body>
 <?php
