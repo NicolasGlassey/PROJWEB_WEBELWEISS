@@ -22,13 +22,12 @@ ob_start();
                 </div>
 
                 <!-- drag and drop Start -->
+            <form action="index.php?action=uploadImage" method="post" enctype="multipart/form-data" name="formImageUpload" id="formImageUpload">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 drop-zone">
                     <input type="file" name="myFile" class="drop-zone__input">
                 </div>
-                <form action="" class="uploadImage_choseFile">
-                        <input type="file" id="myFile" name="filename">
-                </form>
-        </div>
+            </form>
+        </div>s
         <!-- drag and drop End -->
     </body>
 <?php

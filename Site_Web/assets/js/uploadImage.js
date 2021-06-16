@@ -2,7 +2,7 @@
  * @file    uploadImage.js
  * @brief   This script is used for drag and drop
  * @author  Craeted by Mikael Juillet
- * @version 12.06.2021 // 0.2
+ * @version 16.06.2021 // 0.3
  */
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
@@ -81,6 +81,19 @@ function updateThumbnail(dropZoneElement, file) {
         reader.readAsDataURL(file);
         reader.onload = () => {
             thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+            dropZoneElement.removeEventListener("click", (e) => {
+                inputElement.click();
+            });
+            dropZoneElement.removeEventListener("change", (e) => {
+                inputElement.click();
+            });
+            dropZoneElement.removeEventListener("dragover", (e) => {
+                inputElement.click();
+            });
+            dropZoneElement.removeEventListener("drop", (e) => {
+                inputElement.click();
+            });
+            document.forms["formImageUpload"].submit();
         };
     } else {
         thumbnailElement.style.backgroundImage = null;

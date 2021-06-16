@@ -20,7 +20,8 @@ if(isset($_GET['action'])){
             displayProfile($_GET);
             break;
         case 'uploadImage' :
-            controlImage();
+            require "Controler/upload.php";
+            controlImage($_POST);
             break;
         default:
             displayHome();
