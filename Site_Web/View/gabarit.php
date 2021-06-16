@@ -102,6 +102,10 @@
 
 <?=$content?>
 
+<div class="footer-margin">
+
+</div>
+
 <footer>
     <!-- Footer Start-->
     <div class="footer-area">

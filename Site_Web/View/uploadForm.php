@@ -18,18 +18,12 @@ ob_start();
             <form method="post" action="index.php?action=uploadImageDatas" class="uploadImage_form">
                 <h3 class="uploadImage_title col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Informations</h3>
                 <?php
-                // show error message if it has one
-                GLOBAL $_errorMsg;
                 GLOBAL $_photoInfo;
-                if($_errorMsg != null) {  ?>
+                ?>
                 <div class="uploadImageView">
-                    <img src="assets\img\image-not-found.png">
-                    <div class="fileName"><?php $_errorMsg["name"] ?></div>
-                <?php } else{?>
-                    <img src="<?php $_photoInfo["imagePath"]?>">
-                    <div class="fileName"><?php $_photoInfo["name"] ?></div>
+                    <img src="<?=$_photoInfo["imagePath"]?>">
+                    <div class="fileName"><?=$_photoInfo["name"] ?></div>
                 </div>
-                <?php }?>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3 upload_require">Nom <strong>*</strong></div>
                     <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="imageNameInput"  required>
@@ -40,11 +34,11 @@ ob_start();
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Longitude</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="longitudeInput" >
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="number" step="0.0000001" name="longitudeInput" >
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Latitude</div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="latitudeInput" >
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="number" step="0.0000001" name="latitudeInput" >
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Date</div>

@@ -11,7 +11,7 @@
 
 /**
  * @brief display and manage the upload of an image
- * @param $image
+ * @param $image - file, Image
  */
 function controlImage($image){
     if (isset($image['myFile'])) {
@@ -23,6 +23,8 @@ function controlImage($image){
             $_SESSION["imageID"] = $_photoInfo["id"];
             require "View/uploadForm.php";
         } else {
+            GLOBAL $_errorMsg;
+            $_errorMsg = "Impossible d'ajouter l'image";
             require "View/uploadimage.php";
         }
     } else {
@@ -33,8 +35,8 @@ function controlImage($image){
 
 
 /**
- * @brief display the second form to metadatas of an image
- * @param $imageDatas
+ * @brief display the second form to metadata of an image
+ * @param $imageDatas - array, Metadata from image
  */
 function controlImageDatas($imageDatas){
 
