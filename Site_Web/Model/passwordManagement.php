@@ -13,22 +13,19 @@
  * @return bool - True if the password respect the constraints
  */
 function isPasswordGood($plainTextPassword){
-    $isPwdGood = true;//TODO Live review set this variable to false and the code must change the value to true.
-
     //Constraints of strong password
     if(strlen($plainTextPassword) < 8 || !preg_match('@[A-Z]@',
             $plainTextPassword) || !preg_match('@[a-z]@',
             $plainTextPassword) || !preg_match('@[0-9]@',
             $plainTextPassword) || !preg_match('@[^\w]@', $plainTextPassword)){
-        $isPwdGood = false;//TODO return false there
+        return false;
     }
-
     //Check for specials chars unsupported in the JSON file system
     $unwantedChars = ['[', ']', '{', '}',';',':','"'];
     if(preg_match('/[' . preg_quote(implode(',', $unwantedChars)) . ']+/', $plainTextPassword)) {
-        $isPwdGood = false; //TODO return false there
+        return false;
     }
-    return $isPwdGood;//TODO return true there
+    return true;
 }
 
 /**
@@ -52,7 +49,6 @@ function hashPassword($plainTextPassword){
  * @param $passwordHashed - true hash of password
  * @return bool - If the password correspond
  */
-//TODO return type
 function verifyPassword($passwordToVerify,$passwordHashed): bool
 {
     return password_verify($passwordToVerify,$passwordHashed) && isPasswordGood($passwordToVerify);

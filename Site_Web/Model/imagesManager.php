@@ -43,13 +43,12 @@ function getImagesWithProfile($profileID){
 /**
  * @brief get all images on the site
  * @return mixed - all images on the site
- * @throws JsonManagerException //TODO getJsonContent throws an exception. Get getAllImages must documented this.
+ * @throws JsonManagerException - If there is a problem to read the image
  */
 function getAllImages(){
     return getJsonContent(pathNameImage.fileNameImage);
 }
 
-//TODO proposition : exceptions moved at the bottom's class/file
 #region Exceptions
 /**
  * @brief For returning special ImageManager Exceptions relative to the user

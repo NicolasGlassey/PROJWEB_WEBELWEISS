@@ -11,11 +11,10 @@
     /**
      * @brief This function is used to load a JSON file and decode it into a classic PHP array.
      * @param $path - The relative location of the JSON file
-     * @return mixed - A recursive array with the contents of the JSON file (the array can be empty if the file does not exist or if the decoder has a problem)
+     * @return array - A recursive array with the contents of the JSON file (the array can be empty if the file does not exist or if the decoder has a problem)
      * @throws JsonManagerException - if the decoder has a problem
      */
-    //TODO return type missing
-    function getJsonContent($path): mixed
+    function getJsonContent($path): array
     {
         $fileContent = "";
         $fExist = is_file($path);
@@ -24,15 +23,15 @@
             while (($line = fgets($jsonFile)) !== false) {
                 $fileContent = $fileContent . $line;
             }
-            //TODO try to use a try/catch and finally for fclose to guaranty the close operation.
-            fclose($jsonFile);
+            if(fclose($jsonFile) == false){
+                throw new JsonManagerException("Can't close the Json file.",2);
+            }
         }else{
             $fileContent = "[]";
         }
         try{
             $JSONarray = json_decode($fileContent,true);
-        }catch (JsonException){//TODO removed unused variable
-            $JSONarray = array();//TODO remove unused variable
+        }catch (JsonException){
             throw new JsonManagerException("Json decoder cannot decode",0);
         }
         return $JSONarray;
@@ -54,16 +53,15 @@
         if(fwrite($jsonFile, $jsonTextToWrite) == false){
             throw new JsonManagerException("Cannot write in the JSON file",1);
         }
-        //TODO try/catch with a finally who close the file
-        fclose($jsonFile);
+        if(fclose($jsonFile) == false){
+            throw new JsonManagerException("Cannot close the JSON file",2);
+        }
     }
 
 /**
  * @brief For returning special JsonManager Exceptions
  * Class AccountException
  */
-
-//TODO exception move to the bottom's class
 class JsonManagerException extends Exception{
 
 }
