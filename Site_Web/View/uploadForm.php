@@ -3,7 +3,7 @@
  * @file    uploadForm.php
  * @brief   This script is used for make user anser an form for upload an image
  * @author  Craeted by Mikael Juillet
- * @version 13.06.2021 // 0.2
+ * @version 16.06.2021 // 0.3
  */
 
 $title = "connection";
@@ -17,13 +17,17 @@ ob_start();
             </div>
             <form method="post" action="index.php?action=uploadImage" class="uploadImage_form">
                 <h3 class="uploadImage_title col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Informations</h3>
-                <?php if() {  ?>
+                <?php
+                // show error message if it has one
+                GLOBAL $_errorMsg;
+                GLOBAL $_photoInfo;
+                if($_errorMsg != null) {  ?>
                 <div class="uploadImageView">
-                    <img src="<?php ?>">
-                    <div class="fileName"><?php ?></div>
-                <?php } else{?>
                     <img src="assets\img\image-not-found.png">
-                    <div class="fileName"><?php ?></div>
+                    <div class="fileName"><?php $_errorMsg["fileName"] ?></div>
+                <?php } else{?>
+                    <img src="<?php $_photoInfo["photo"]?>">
+                    <div class="fileName"><?php $_photoInfo["fileName"] ?></div>
                 </div>
                 <?php }?>
                 <div class="row">
