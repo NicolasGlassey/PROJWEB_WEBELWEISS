@@ -15,7 +15,7 @@ ob_start();
                     <div><h1 class=" color-white">Ajout d'une image</h1></div>
                 </div>
             </div>
-            <form method="post" action="index.php?action=uploadImage" class="uploadImage_form">
+            <form method="post" action="index.php?action=uploadImageDatas" class="uploadImage_form">
                 <h3 class="uploadImage_title col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Informations</h3>
                 <?php
                 // show error message if it has one
@@ -24,10 +24,10 @@ ob_start();
                 if($_errorMsg != null) {  ?>
                 <div class="uploadImageView">
                     <img src="assets\img\image-not-found.png">
-                    <div class="fileName"><?php $_errorMsg["fileName"] ?></div>
+                    <div class="fileName"><?php $_errorMsg["name"] ?></div>
                 <?php } else{?>
-                    <img src="<?php $_photoInfo["photo"]?>">
-                    <div class="fileName"><?php $_photoInfo["fileName"] ?></div>
+                    <img src="<?php $_photoInfo["imagePath"]?>">
+                    <div class="fileName"><?php $_photoInfo["name"] ?></div>
                 </div>
                 <?php }?>
                 <div class="row">

@@ -38,7 +38,7 @@
             $hash = getHashFile($file);
             try {
                 $pathToImage = uploadToServer($file);
-                $userID = $_SESSION["userID"];
+                $userID = $_SESSION["userid"];
                 require_once "Model/dbConnector.php";
                 $datas = array($pathToImage,$hash,"DRAFT",$userID);
                 executeQuery("INSERT INTO `webelweiss_cactuspic`.`photos` (`imagePath`, `imageHash`, `name`, `photographers_id`) VALUES (?, ?, ?, ?)",$datas);
