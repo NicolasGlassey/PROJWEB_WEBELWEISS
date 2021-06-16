@@ -9,20 +9,14 @@
      */
 
     /**
-     * @brief For returning special JsonManager Exceptions
-     * Class AccountException
-     */
-    class JsonManagerException extends Exception{
-
-    }
-
-    /**
      * @brief This function is used to load a JSON file and decode it into a classic PHP array.
      * @param $path - The relative location of the JSON file
      * @return mixed - A recursive array with the contents of the JSON file (the array can be empty if the file does not exist or if the decoder has a problem)
      * @throws JsonManagerException - if the decoder has a problem
      */
-    function getJsonContent($path){
+    //TODO return type missing
+    function getJsonContent($path): mixed
+    {
         $fileContent = "";
         $fExist = is_file($path);
         if($fExist){
@@ -30,14 +24,15 @@
             while (($line = fgets($jsonFile)) !== false) {
                 $fileContent = $fileContent . $line;
             }
+            //TODO try to use a try/catch and finally for fclose to guaranty the close operation.
             fclose($jsonFile);
         }else{
             $fileContent = "[]";
         }
         try{
             $JSONarray = json_decode($fileContent,true);
-        }catch (JsonException $exeption){
-            $JSONarray = array();
+        }catch (JsonException){//TODO removed unused variable
+            $JSONarray = array();//TODO remove unused variable
             throw new JsonManagerException("Json decoder cannot decode",0);
         }
         return $JSONarray;
@@ -59,5 +54,16 @@
         if(fwrite($jsonFile, $jsonTextToWrite) == false){
             throw new JsonManagerException("Cannot write in the JSON file",1);
         }
+        //TODO try/catch with a finally who close the file
         fclose($jsonFile);
     }
+
+/**
+ * @brief For returning special JsonManager Exceptions
+ * Class AccountException
+ */
+
+//TODO exception move to the bottom's class
+class JsonManagerException extends Exception{
+
+}

@@ -25,6 +25,7 @@ function displayProfile($profileInfo){
         }catch (ImageManagerUserException $ex){
             $error = "L'utilisateur que vous cherchez n'existe pas.";
         }finally{
+            //TODO question : in case of ImagesManagerUserException, are we able to call displayProfileUser ? ($userImage value ?, $usersInfos value ?)
             displayProfileUser($userImages ,$userInfos, $error);
         }
     }else{

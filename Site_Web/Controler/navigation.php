@@ -17,6 +17,7 @@ function displayHome(){
  * @brief display the login page
  * @param $errors - get errors
  */
+//TODO using optional parameters to avoid displayLogin(null)
 function displayLogin($errors){
     GLOBAL $_errorMsg;
     $_errorMsg = $errors;

@@ -6,14 +6,15 @@
     @version   0.3 (26.05.2021)
  **/
 
-
 /**
  * @brief display the good page in terms of login correct or not
  * @param $userInfos
  */
 function controlLogin($userInfos){
+    //TODO refactor in live (DRY)
     require_once("Controler/navigation.php");
     if (!(isset($userInfos['email'])) || !(isset($userInfos['password']))){
+        //TODO update displayLogin with optional parameter to remove null parameter
         displayLogin(null);
     }else{
         try{

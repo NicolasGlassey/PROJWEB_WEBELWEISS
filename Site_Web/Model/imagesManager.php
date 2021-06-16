@@ -17,14 +17,6 @@ const fileNameImage = 'images.json';
 #endregion
 
 /**
- * @brief For returning special ImageManager Exceptions relative to the user
- * Class AccountException
- */
-class ImageManagerUserException extends Exception{
-
-}
-
-/**
  * @brief get all images of a user
  * @param $profileID
  * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url)
@@ -51,7 +43,19 @@ function getImagesWithProfile($profileID){
 /**
  * @brief get all images on the site
  * @return mixed - all images on the site
+ * @throws JsonManagerException //TODO getJsonContent throws an exception. Get getAllImages must documented this.
  */
 function getAllImages(){
     return getJsonContent(pathNameImage.fileNameImage);
 }
+
+//TODO proposition : exceptions moved at the bottom's class/file
+#region Exceptions
+/**
+ * @brief For returning special ImageManager Exceptions relative to the user
+ * Class AccountException
+ */
+class ImageManagerUserException extends Exception{
+
+}
+#endregion Exceptions
