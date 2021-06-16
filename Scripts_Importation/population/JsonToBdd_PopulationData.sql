@@ -6,7 +6,7 @@ Date : 15.06.2021
 Verssion : 0.1
 */
 
-USE webelweiss_cactuspic;
+USE Webelweiss_cactuspic;
 
 INSERT INTO photographers (photographers.email, photographers.passwordHash, photographers.firstname, photographers.lastname, photographers.description) VALUES  ("Test1@test.test", "$2y$10$4lfvjo2ReAvYDezexab80ul8\/69sMuDJcabCIfODjG8qJK.BU.Ji6", "Test1", "Test1", NULL);
 
