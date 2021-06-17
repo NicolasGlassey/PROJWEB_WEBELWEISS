@@ -20,7 +20,7 @@
      * @return int|null
      */
     function getHashFile($file){
-        return hash_file('md5', $file["tmp_name"]);
+        return hash_file('crc32b', $file["tmp_name"]);
     }
 
     /**
