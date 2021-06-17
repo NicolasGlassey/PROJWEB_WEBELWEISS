@@ -20,7 +20,7 @@
         require_once "Model/dbConnector.php";
         $infos = array($name,$description,$takenDate, $longitude, $latitude,$id);
         try {
-            executeQuery("UPDATE `webelweiss_cactuspic`.`photos` SET `name` = ?, `description` = ?, `takenDate` = ?, `longitude` = ?, `latitude` = ? WHERE (`id` = ?);", $infos);
+            executeQuery("UPDATE `Webelweiss_CactusPic`.`photos` SET `name` = ?, `description` = ?, `takenDate` = ?, `longitude` = ?, `latitude` = ? WHERE (`id` = ?);", $infos);
         } catch (ModelDataExeption $e) {
         }
     }
@@ -41,7 +41,7 @@
                 $userID = $_SESSION["userid"];
                 require_once "Model/dbConnector.php";
                 $datas = array($pathToImage,$hash,"DRAFT",$userID);
-                executeQuery("INSERT INTO `webelweiss_cactuspic`.`photos` (`imagePath`, `imageHash`, `name`, `photographers_id`) VALUES (?, ?, ?, ?)",$datas);
+                executeQuery("INSERT INTO `Webelweiss_CactusPic`.`photos` (`imagePath`, `imageHash`, `name`, `photographers_id`) VALUES (?, ?, ?, ?)",$datas);
             } catch (ImageUploaderExeption | ModelDataExeption $e) {
             }
         }
@@ -57,7 +57,7 @@
     {
         $imageInfos = null;
         try {
-            $potentialImage = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos WHERE photos.imageHash = ?;", array($hash));
+            $potentialImage = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM Webelweiss_CactusPic.photos WHERE photos.imageHash = ?;", array($hash));
             if(count($potentialImage) == 1){
                 $imageInfos = $potentialImage[0];
             }
@@ -76,7 +76,7 @@
     {
         $imageInfos = null;
         try {
-            $potentialImage = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos WHERE photos.id = ?;", array($imageID));
+            $potentialImage = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM Webelweiss_CactusPic.photos WHERE photos.id = ?;", array($imageID));
             if(count($potentialImage) == 1){
                 $imageInfos = $potentialImage[0];
             }

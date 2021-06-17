@@ -68,7 +68,7 @@
         if($canUpload){
             require_once "Model/dbConnector.php";
             try {
-                $resultBDD = executeQuerySelect("SELECT photos.imageHash FROM webelweiss_cactuspic.photos WHERE photos.imageHash = ?;", array($target_name));
+                $resultBDD = executeQuerySelect("SELECT photos.imageHash FROM Webelweiss_CactusPic.photos WHERE photos.imageHash = ?;", array($target_name));
                 $canUpload = (count($resultBDD) == 0);
             } catch (ModelDataExeption $e) {
                 $canUpload = false;

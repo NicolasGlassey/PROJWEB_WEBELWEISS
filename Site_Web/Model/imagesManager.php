@@ -29,7 +29,7 @@ function getImagesWithProfile($profileID): array
     $imageOfProfile = array();
     if($userProfile != null){
         try {
-            $imageOfProfile = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos WHERE photos.photographers_id=?;", array($profileID));
+            $imageOfProfile = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM Webelweiss_CactusPic.photos WHERE photos.photographers_id=?;", array($profileID));
         } catch (ModelDataExeption $e) {
             $imageOfProfile = array();
         }
@@ -44,6 +44,6 @@ function getImagesWithProfile($profileID): array
  * @return mixed - all images on the site
  */
 function getAllImages(){
-    return executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos",null);
+    return executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM Webelweiss_CactusPic.photos",null);
 }
 ?>

@@ -15,7 +15,7 @@
     function getUserInfosByID($userID){
         $userInfos = null;
         try {
-            $potentialUser = executeQuerySelect("SELECT photographers.id,photographers.email,photographers.passwordHash,photographers.firstname,photographers.lastname,photographers.description FROM webelweiss_cactuspic.photographers WHERE photographers.id=?;", array($userID));
+            $potentialUser = executeQuerySelect("SELECT photographers.id,photographers.email,photographers.passwordHash,photographers.firstname,photographers.lastname,photographers.description FROM Webelweiss_CactusPic.photographers WHERE photographers.id=?;", array($userID));
             if(count($potentialUser) == 1){
                 $userInfos = $potentialUser[0];
             }
@@ -33,7 +33,7 @@
     function getUserInfosByEmail($userEmail){
         $userInfos = null;
         try {
-            $potentialUser = executeQuerySelect("SELECT photographers.id,photographers.email,photographers.passwordHash,photographers.firstname,photographers.lastname,photographers.description FROM webelweiss_cactuspic.photographers WHERE photographers.email=?;", array($userEmail));
+            $potentialUser = executeQuerySelect("SELECT photographers.id,photographers.email,photographers.passwordHash,photographers.firstname,photographers.lastname,photographers.description FROM Webelweiss_CactusPic.photographers WHERE photographers.email=?;", array($userEmail));
             if(count($potentialUser) == 1){
                 $userInfos = $potentialUser[0];
             }
