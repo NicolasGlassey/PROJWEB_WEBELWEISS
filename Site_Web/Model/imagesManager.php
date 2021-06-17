@@ -7,32 +7,24 @@
  * @version   1.0 (22.03.2021)
  */
 
-#region REQUIRE
-require_once('Model/jsonManager.php');
-#endregion
-
-#region CONSTANTS
-const pathNameImage = 'Data/';
-const fileNameImage = 'images.json';
-#endregion
+require_once "Model/dbConnector.php";
 
 /**
- * @brief get all images of a user
- * @param $profileID
- * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url)
+ * @brief Get all images of a user
+ * @param $profileID - Id of the user
+ * @return array - all images (can be a empty array is no image were found) ONE IMAGE IS :(person,name,description,url...)
  * @throws ImageManagerUserException - throw "User not exists" if the $profileID is not in the Database
  */
-function getImagesWithProfile($profileID){
+function getImagesWithProfile($profileID): array
+{
     require_once('Model/userInfoProcess.php');
-    $userProfile = getUserInfo($profileID);
+    $userProfile = getUserInfosByID($profileID);
     $imageOfProfile = array();
-
     if($userProfile != null){
-        $images = getAllImages();
-        foreach ($images as $image) {
-            if($image["person"] == $profileID){
-                array_push($imageOfProfile,$image);
-            }
+        try {
+            $imageOfProfile = executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos WHERE photos.photographers_id=?;", array($profileID));
+        } catch (ModelDataExeption $e) {
+            $imageOfProfile = array();
         }
     }else{
         throw new ImageManagerUserException("User not exists",0);
@@ -43,13 +35,11 @@ function getImagesWithProfile($profileID){
 /**
  * @brief get all images on the site
  * @return mixed - all images on the site
- * @throws JsonManagerException - If there is a problem to read the image
  */
 function getAllImages(){
-    return getJsonContent(pathNameImage.fileNameImage);
+    return executeQuerySelect("SELECT photos.id,photos.imagePath,photos.imageHash,photos.name,photos.description,photos.takenDate,photos.longitude,photos.latitude,photos.photographers_id FROM webelweiss_cactuspic.photos",null);
 }
 
-#region Exceptions
 /**
  * @brief For returning special ImageManager Exceptions relative to the user
  * Class AccountException
@@ -57,4 +47,4 @@ function getAllImages(){
 class ImageManagerUserException extends Exception{
 
 }
-#endregion Exceptions
+?>
