@@ -35,9 +35,6 @@
         $canUpload = true;
         $imageFileType = strtolower(pathinfo(basename($file["name"]), PATHINFO_EXTENSION));
         $target_dir = "Images/";
-        $target_name = getHashFile($file);
-        $target_file = $target_dir . $target_name. ".". $imageFileType;
-
 
 
         //Check if image file is a actual image or fake image
@@ -48,11 +45,6 @@
             } else {
                 $canUpload = false;
             }
-        }
-
-        //Check if file already exists
-        if (file_exists($target_file)) {
-            $canUpload = false;
         }
 
         // Check file size
@@ -68,6 +60,7 @@
         if($canUpload){
             require_once "Model/dbConnector.php";
             try {
+                $target_name = getHashFile($file);
                 $resultBDD = executeQuerySelect("SELECT photos.imageHash FROM Webelweiss_CactusPic.photos WHERE photos.imageHash = ?;", array($target_name));
                 $canUpload = (count($resultBDD) == 0);
             } catch (ModelDataExeption $e) {
