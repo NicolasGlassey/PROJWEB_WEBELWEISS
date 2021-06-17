@@ -4,10 +4,11 @@
     @brief     redirect user where he has to go
     @author    Created by Jonatan PERRET
     @author    Updated by Mikael Juillet
+    @author    Updated by Eliott Jaquier
     @version   0.3 (13.06.2021)
 **/
-require_once 'Controler/navigation.php';
 session_start();
+require_once 'Controler/navigation.php';
 if(isset($_GET['action'])){
     $action = $_GET['action'];
     switch ($action){

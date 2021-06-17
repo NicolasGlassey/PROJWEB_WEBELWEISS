@@ -26,7 +26,7 @@
         $fileContent = "";
         $fExist = is_file($path);
         if($fExist){
-            $jsonFile = fopen($path, "r+");
+            $jsonFile = fopen($path, "r");
             while (($line = fgets($jsonFile)) !== false) {
                 $fileContent = $fileContent . $line;
             }
