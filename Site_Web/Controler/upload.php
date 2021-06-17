@@ -25,10 +25,10 @@ function controlImage($image){
         } else {
             GLOBAL $_errorMsg;
             $_errorMsg = "Impossible d'ajouter l'image";
-            require "View/uploadimage.php";
+            require "View/uploadImage.php";
         }
     } else {
-        require "View/uploadimage.php";
+        require "View/uploadImage.php";
 
     }
 }
