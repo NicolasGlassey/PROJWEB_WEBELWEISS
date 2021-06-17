@@ -56,7 +56,7 @@
         }
 
         // Check file size
-        if ($file["size"] > 500000) {
+        if ($file["size"] > 50000000) {
             $canUpload = false;
         }
 
