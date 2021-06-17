@@ -26,7 +26,7 @@ ob_start();
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3 upload_require">Nom <strong>*</strong></div>
-                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="imageNameInput"  required>
+                    <input class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="imageNameInput" maxlength="50" required>
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Lieu</div>
@@ -46,7 +46,7 @@ ob_start();
                 </div>
                 <div class="row uploadImage_formDesc">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3">Description</div>
-                    <textarea class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="DescInput"></textarea>
+                    <textarea class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-xs-8" type="text" name="DescInput" maxlength="2048"></textarea>
                 </div>
                 <div class="row">
                     <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-3"></div>
