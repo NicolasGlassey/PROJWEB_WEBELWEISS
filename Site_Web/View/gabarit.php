@@ -36,6 +36,7 @@
 
 
     <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/uploadImage.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -66,18 +67,21 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php?action=home">Accueil</a></li>
-                                    <?php if ((isset($_SESSION['userEmail']))) {?>
-                                        <li><a href="index.php?action=profile"><?=$_SESSION['userEmail'] ?></a></li>
-                                    <?php } else {?>
-                                        <li><a href="index.php?action=profile">Profile</a></li>
+                                    <?php if ((isset($_SESSION['username']))) {?>
+                                        <li><a href="index.php?action=profile&id=<?=$_SESSION['userid']?>">Profil</a></li>
+                                    <?php } ?>
+                                    <?php if ((isset($_SESSION['username']))) {?>
+                                        <li>
+                                            <a href="index.php?action=uploadImage">Ajouter une image</a>
+                                        </li>
                                     <?php }?>
-                                    <?php if (!(isset($_SESSION['userEmail']))) {?>
+                                    <?php if (!(isset($_SESSION['username']))) {?>
                                     <li class="login"><a href="index.php?action=login">
-                                            <i class="ti-user"></i> se connecter</a>
+                                            <i class="ti-user"></i>Se connecter</a>
                                     </li>
                                     <?php } else {?>
-                                    <li class="login"><a href="index.php?action=login">
-                                            <i class="ti-user"></i> se déconnecter</a>
+                                    <li class="login"><a href="index.php?action=logout">
+                                            <i class="ti-user"></i>Se déconnecter</a>
                                     </li>
 
                                     <?php } ?>
@@ -97,6 +101,10 @@
 <!-- Header End -->
 
 <?=$content?>
+
+<div class="footer-margin">
+
+</div>
 
 <footer>
     <!-- Footer Start-->
@@ -170,4 +178,5 @@
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
 
-
+<!--uploadImages js -->
+<script src="./assets/js/uploadImage.js"></script>

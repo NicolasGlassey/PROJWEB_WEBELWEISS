@@ -1,15 +1,14 @@
 <?php
-
 /**
     @file      index.php
     @brief     redirect user where he has to go
     @author    Created by Jonatan PERRET
-    @version   0.1 (08.03.2021)
+    @author    Updated by Mikael Juillet
+    @author    Updated by Eliott Jaquier
+    @version   0.3 (13.06.2021)
 **/
+session_start();
 require_once 'Controler/navigation.php';
-
-//TODO where is session start ?
-
 if(isset($_GET['action'])){
     $action = $_GET['action'];
     switch ($action){
@@ -21,11 +20,18 @@ if(isset($_GET['action'])){
             require "Controler/profile.php";
             displayProfile($_GET);
             break;
+        case 'uploadImage' :
+            require "Controler/upload.php";
+            controlImage($_FILES);
+            break;
+        case 'uploadImageDatas':
+            require "Controler/upload.php";
+            controlImageDatas($_POST);
+            break;
         default:
             displayHome();
             break;
     }
 }else{
-    //TODO is else condition reachable ?
     displayHome();
 }
