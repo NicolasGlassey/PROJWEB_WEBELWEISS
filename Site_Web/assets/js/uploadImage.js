@@ -58,45 +58,30 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
  * @param {File} file
  */
 function updateThumbnail(dropZoneElement, file) {
-    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
-    // First time - remove the prompt
-    if (dropZoneElement.querySelector(".drop-zone__promptError")) {
-        dropZoneElement.querySelector(".drop-zone__promptError").remove();
-    }
-
-    // First time - there is no thumbnail element, so lets create it
-    if (!thumbnailElement) {
-        thumbnailElement = document.createElement("div");
-        thumbnailElement.classList.add("drop-zone__thumb");
-        dropZoneElement.appendChild(thumbnailElement);
-    }
-
-    thumbnailElement.dataset.label = file.name;
-
-    // Show thumbnail for image files
     if (file.type.startsWith("image/")) {
+        // Show thumbnail for image files
+        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+        // First time - remove the prompt
+        if (dropZoneElement.querySelector(".drop-zone__promptError")) {
+            dropZoneElement.querySelector(".drop-zone__promptError").remove();
+        }
+
+        // First time - there is no thumbnail element, so lets create it
+        if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("drop-zone__thumb");
+            dropZoneElement.appendChild(thumbnailElement);
+        }
+
+        thumbnailElement.dataset.label = file.name;
+
         const reader = new FileReader();
 
         reader.readAsDataURL(file);
         reader.onload = () => {
             thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-            dropZoneElement.removeEventListener("click", (e) => {
-                inputElement.click();
-            });
-            dropZoneElement.removeEventListener("change", (e) => {
-                inputElement.click();
-            });
-            dropZoneElement.removeEventListener("dragover", (e) => {
-                inputElement.click();
-            });
-            dropZoneElement.removeEventListener("drop", (e) => {
-                inputElement.click();
-            });
             document.forms["formImageUpload"].submit();
         };
-    } else {
-        thumbnailElement.style.backgroundImage = null;
     }
 }
 

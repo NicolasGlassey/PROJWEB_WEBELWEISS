@@ -16,6 +16,11 @@ if(isset($_GET['action'])){
             require_once 'Controler/login.php';
             controlLogin($_POST);
             break;
+        case 'logout':
+            require_once 'Controler/login.php';
+            logout();
+            displayHome();
+            break;
         case 'profile' :
             require "Controler/profile.php";
             displayProfile($_GET);

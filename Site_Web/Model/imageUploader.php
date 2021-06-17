@@ -32,42 +32,38 @@
      */
     function canBeUploaded($file): bool
     {
-        $canUpload = true;
+        if($file["error"] == 1){
+            return false;
+        }
         $imageFileType = strtolower(pathinfo(basename($file["name"]), PATHINFO_EXTENSION));
-        $target_dir = "Images/";
-
 
         //Check if image file is a actual image or fake image
         if (isset($_POST["submit"])) {
             $check = getimagesize($file["tmp_name"]);
-            if ($check !== false) {
-                $canUpload = true;
-            } else {
-                $canUpload = false;
+            if ($check == false) {
+                return false;
             }
         }
 
         // Check file size
         if ($file["size"] > 50000000) {
-            $canUpload = false;
+            return false;
         }
 
         // Allow certain file formats
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-            $canUpload = false;
+            return false;
         }
 
-        if($canUpload){
-            require_once "Model/dbConnector.php";
-            try {
-                $target_name = getHashFile($file);
-                $resultBDD = executeQuerySelect("SELECT photos.imageHash FROM Webelweiss_CactusPic.photos WHERE photos.imageHash = ?;", array($target_name));
-                $canUpload = (count($resultBDD) == 0);
-            } catch (ModelDataExeption $e) {
-                $canUpload = false;
-            }
+
+        require_once "Model/dbConnector.php";
+        try {
+            $target_name = getHashFile($file);
+            $resultBDD = executeQuerySelect("SELECT photos.imageHash FROM Webelweiss_CactusPic.photos WHERE photos.imageHash = ?;", array($target_name));
+            return (count($resultBDD) == 0);
+        } catch (ModelDataExeption $e) {
+            return false;
         }
-        return $canUpload;
     }
 
     /**

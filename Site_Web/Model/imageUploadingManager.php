@@ -31,7 +31,6 @@
      * @return string|null - Return the unique hash of the file uploaded
      */
     function uploadImage($file){
-        $isImageUploaded = false;
         $hash = null;
         require_once "Model/imageUploader.php";
         if(canBeUploaded($file)){
@@ -40,7 +39,7 @@
                 $pathToImage = uploadToServer($file);
                 $userID = $_SESSION["userid"];
                 require_once "Model/dbConnector.php";
-                $datas = array($pathToImage,$hash,"DRAFT",$userID);
+                $datas = array($pathToImage,$hash,substr($file["name"], 0, 50),$userID);
                 executeQuery("INSERT INTO `Webelweiss_CactusPic`.`photos` (`imagePath`, `imageHash`, `name`, `photographers_id`) VALUES (?, ?, ?, ?)",$datas);
             } catch (ImageUploaderExeption | ModelDataExeption $e) {
             }
@@ -62,7 +61,6 @@
                 $imageInfos = $potentialImage[0];
             }
         } catch (ModelDataExeption $e) {
-
         }
         return $imageInfos;
     }

@@ -29,7 +29,6 @@ function controlImage($image){
         }
     } else {
         require "View/uploadImage.php";
-
     }
 }
 
@@ -39,7 +38,6 @@ function controlImage($image){
  * @param $imageDatas - array, Metadata from image
  */
 function controlImageDatas($imageDatas){
-
     if(isset($imageDatas['imageNameInput']) && isset($_SESSION["imageID"])){
         require_once "Model/imageUploadingManager.php";
         if($imageDatas["DescInput"] == ""){
@@ -57,9 +55,9 @@ function controlImageDatas($imageDatas){
         changeImageInfo($_SESSION["imageID"], $imageDatas["imageNameInput"], $imageDatas["DescInput"], $imageDatas["dateImput"] ,$imageDatas["longitudeInput"], $imageDatas["latitudeInput"]);
         require "Controler/profile.php";
         displayProfile($_SESSION['userid']);
+    }else{
+        require "View/uploadImage.php";
     }
-    
-
 }
 
 
