@@ -14,7 +14,7 @@
  * @param $image - file, Image
  */
 function controlImage($image){
-    if (isset($image['myFile'])) {
+    if (isset($image['myFile']) && isset($_SESSION["userid"])) {
         require_once "Model/imageUploadingManager.php";
         $hashImage = uploadImage(($image["myFile"]));
         if ($hashImage != null) {
@@ -27,8 +27,10 @@ function controlImage($image){
             $_errorMsg = "Impossible d'ajouter l'image";
             require "View/uploadImage.php";
         }
-    } else {
+    } else if(isset($_SESSION["userid"])){
         require "View/uploadImage.php";
+    }else{
+        displayHome();
     }
 }
 
@@ -38,7 +40,7 @@ function controlImage($image){
  * @param $imageDatas - array, Metadata from image
  */
 function controlImageDatas($imageDatas){
-    if(isset($imageDatas['imageNameInput']) && isset($_SESSION["imageID"])){
+    if(isset($imageDatas['imageNameInput']) && isset($_SESSION["imageID"]) && isset($_SESSION["userid"])){
         require_once "Model/imageUploadingManager.php";
         if($imageDatas["DescInput"] == ""){
             $imageDatas["DescInput"] = null;
@@ -55,8 +57,10 @@ function controlImageDatas($imageDatas){
         changeImageInfo($_SESSION["imageID"], $imageDatas["imageNameInput"], $imageDatas["DescInput"], $imageDatas["dateImput"] ,$imageDatas["longitudeInput"], $imageDatas["latitudeInput"]);
         require "Controler/profile.php";
         displayProfile($_SESSION['userid']);
-    }else{
+    }else if(isset($_SESSION["userid"])){
         require "View/uploadImage.php";
+    }else{
+        displayHome();
     }
 }
 

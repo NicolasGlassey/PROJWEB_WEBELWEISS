@@ -47,7 +47,13 @@ GLOBAL $userProfileInfos;
                                         </div>
                                     </div>
                                     <div class="row" style="margin-left: 1px; margin-bottom: 10px">
-                                        <div class="PostDescription"><?=$postInfos['description']?> <p><?=$postInfos['takenDate']?></p> <p>Lon:<?=$postInfos['longitude']?> Lat:<?=$postInfos['latitude']?></p></div>
+                                        <div class="PostDescription"><?=$postInfos['description']?>
+                                            <p><?=$postInfos['takenDate']?></p>
+                                            <?php if(isset($postInfos['longitude'])):?>
+                                            <p>Lon:<?=$postInfos['longitude']?>
+                                                Lat:<?=$postInfos['latitude']?></p>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             <?php }?>
