@@ -14,8 +14,7 @@ function controlLogin($userInfos){
     //TODO refactor in live (DRY)
     require_once("Controler/navigation.php");
     if (!(isset($userInfos['email'])) || !(isset($userInfos['password']))){
-        //TODO update displayLogin with optional parameter to remove null parameter
-        displayLogin(null);
+        displayLogin();
     }else{
         try{
             require_once("Model/userAccountManager.php");
