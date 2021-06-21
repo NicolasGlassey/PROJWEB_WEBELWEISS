@@ -38,6 +38,7 @@
         $imageFileType = strtolower(pathinfo(basename($file["name"]), PATHINFO_EXTENSION));
 
         //Check if image file is a actual image or fake image
+        //TODO : $POST ! ICI
         if (isset($_POST["submit"])) {
             $check = getimagesize($file["tmp_name"]);
             if ($check == false) {
